@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if ! [ -d "java-bin" ]
+then
+    mkdir java-bin
+else
+    rm java-bin/*.class
+fi
+
+javac *.java
+mv *.class java-bin/
+cd java-bin
+java Main
