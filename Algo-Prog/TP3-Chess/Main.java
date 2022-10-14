@@ -5,7 +5,6 @@ import java.util.Scanner;
 // color detection + 2nd turn
 // eat piece if on on another
 // movement rules for each types
-// print black in another color
 
 public class Main
 {
@@ -42,7 +41,7 @@ public class Main
          clearConsole();
          board.printBoard();
          if(side)
-            move = "white";
+            move = "\u001B[37m" + "white" + "\u001B[0m";
          else
             move = "black";
          
@@ -84,21 +83,6 @@ public class Main
       {
          if(side.equals("white"))
          {
-           pieces king = new pieces("king",side, 0, 3);
-           array[0]=king;
-           pieces queen = new pieces("queen", side, 0, 4);
-           array[1]=queen;
-           int c=1;
-           for(int i=0;i<8;i++)
-           {
-              c++;
-              pieces pawn = new pieces("pawn", side, 1, i);
-              array[c] = pawn;
-           }
-           x=0;
-         }
-         else
-         { 
            pieces king = new pieces("king",side, 7, 3);
            array[0]=king;
            pieces queen = new pieces("queen", side, 7, 4);
@@ -111,6 +95,21 @@ public class Main
               array[c] = pawn;
            }
            x=7;
+         }
+         else
+         { 
+           pieces king = new pieces("king",side, 0, 3);
+           array[0]=king;
+           pieces queen = new pieces("queen", side, 0, 4);
+           array[1]=queen;
+           int c=1;
+           for(int i=0;i<8;i++)
+           {
+              c++;
+              pieces pawn = new pieces("pawn", side, 1, i);
+              array[c] = pawn;
+           }
+           x=0;
          }
          pieces tower = new pieces("tower",side,x,0);
          array[10] = tower;

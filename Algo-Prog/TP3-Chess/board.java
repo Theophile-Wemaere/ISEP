@@ -96,11 +96,14 @@ public class board
   public void updateBoard(pieces[] white_pieces, pieces[] black_pieces)
   {
     int x,y;
-    for(int i=0;i<16;i++)
+    for(int i=0;i<white_pieces.length;i++)
     {
       x = white_pieces[i].getPos()[0];
       y = white_pieces[i].getPos()[1];
       this.board[x][y].fillCase(white_pieces[i].getType());
+    }
+    for(int i=0;i<black_pieces.length;i++)
+    {
       x = black_pieces[i].getPos()[0];
       y = black_pieces[i].getPos()[1];
       this.board[x][y].fillCase(black_pieces[i].getType());

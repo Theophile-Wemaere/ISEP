@@ -38,12 +38,12 @@ public class pieces
     }
 
     if(side.equals("white"))
-      this.side = "white";
-    else if(side.equals("black"))
     {
-      this.side = "black";
+      this.side = "white";
       this.type = "\u001B[37m" + this.type + "\u001B[0m";
     }
+    else if(side.equals("black"))
+      this.side = "black";
     else
     {
       System.out.println("Error : side " + side + " unknow");
