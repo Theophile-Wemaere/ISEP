@@ -12,7 +12,6 @@ public class SafeScanner
     
     public int getInt()
     {
-    // routine to get an integer*
         int input = this.sc.nextInt();
         return input;
     }
