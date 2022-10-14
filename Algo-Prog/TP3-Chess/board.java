@@ -103,7 +103,7 @@ public class board
       this.board[x][y].fillCase(white_pieces[i].getType());
       x = black_pieces[i].getPos()[0];
       y = black_pieces[i].getPos()[1];
-      this.board[x][y].fillCase(white_pieces[i].getType());
+      this.board[x][y].fillCase(black_pieces[i].getType());
     }
   }
 }

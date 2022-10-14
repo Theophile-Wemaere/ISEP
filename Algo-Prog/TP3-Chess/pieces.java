@@ -40,7 +40,10 @@ public class pieces
     if(side.equals("white"))
       this.side = "white";
     else if(side.equals("black"))
+    {
       this.side = "black";
+      this.type = "\u001B[37m" + this.type + "\u001B[0m";
+    }
     else
     {
       System.out.println("Error : side " + side + " unknow");
