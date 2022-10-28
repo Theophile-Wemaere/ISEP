@@ -9,5 +9,11 @@ fi
 
 javac *.java
 mv *.class java-bin/
+
+if [[ "$1" != "" ]]
+then
+    cp $1 java-bin/
+fi
+
 cd java-bin
 java Main
