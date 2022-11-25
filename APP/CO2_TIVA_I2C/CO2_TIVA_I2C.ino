@@ -143,6 +143,10 @@ uint32_t I2CReceive(uint32_t slave_addr, uint8_t reg)
 
 #define SLAVE_ADDR 0x70 // L'adresse semble être 0x70
 
+int prevCO2 = 400;
+int prevVOC = 100;
+bool beginning = true;
+
 void readSensor()
 {
     byte buffer[] = {0x0C,0x00,0x00,0x00,0x00};
@@ -154,38 +158,38 @@ void readSensor()
     for(int i=0;i<255;i++)
     {
       int d = I2CReceive(SLAVE_ADDR,i);
-      if(d!=0)
+      if(i!=22 && d!=0)
       {
-//        Serial.print(i);
-//        Serial.print(" - ");
-//        Serial.print(d);
-        data[0] = d;
-        for(int j=1;j<8;j++)
-        {
-          int d = I2CReceive(SLAVE_ADDR,i);
-          data[j] = d;
-//          Serial.print(" ");
-//          Serial.print(d);
+          data[0] = d;
+          for(int j=1;j<8;j++)
+          {
+            int d = I2CReceive(SLAVE_ADDR,i);
+            data[j] = d;
+          }
 
-        }
-
+        int CO2,VOC;
         
-       Serial.print('\n');
+        CO2 = (data[1]-13)*(1600/229) + 400;  
+                                                                                                                                                                                                                             
+        VOC = (data[0]-13)*(1000/229);       
+    
+        if(VOC < 0)
+          VOC = 0;
 
-        if (data[0] != 13)
-        {
-          int CO2,VOC;
-          
-          CO2 = (data[1]-13)*(1600/229) + 400;  
-                                                                                                                                                                                                                               
-          VOC = (data[0]-13)*(1000/229);       
-      
-          //Serial.print("CO2 : ");
-          Serial.print(CO2);
-          Serial.print(" ");
-          //Serial.print("VOC: ");
-          Serial.println(VOC);
-        }
+        if(CO2 < 400)
+          CO2 = 400;
+
+         if (CO2 <= prevCO2*2 || VOC <= prevVOC*2)
+         {
+            prevCO2 = CO2;
+            
+            prevVOC = VOC;
+            if(prevCO2 < 100)
+              prevVOC = 100;
+            Serial.print(CO2);
+            Serial.print(" ");
+            Serial.println(VOC);
+         }
       }           
   }
 }
