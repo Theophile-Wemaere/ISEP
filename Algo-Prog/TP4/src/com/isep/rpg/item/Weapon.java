@@ -26,6 +26,7 @@ public class Weapon extends Item
             case "bow":
                 this.damages = 2;
                 this.malus = false;
+                break;
 
             case "crossbow":
                 this.damages = 3;
@@ -43,7 +44,7 @@ public class Weapon extends Item
     {
         if(this.malus)
         {
-            if (Math.random() < 0.5) // Math.random() return a random double : 0 <= Math.random() < 1
+            if (Math.random() < 0.2) // Math.random() return a random double : 0 <= Math.random() < 1
             {
                 return false;
             } 

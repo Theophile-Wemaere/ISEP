@@ -7,9 +7,9 @@ public class Enemy extends Combatant
     private int damage, defense, healthPoint;
     private String name;
 
-    public Enemy(String name, int defense)
+    public Enemy(String name, int HP, int defense)
     {
-        super(name,1000, defense, 5); // infinite mana in case I want to implement special thing
+        super(name,1000, defense, HP); // infinite mana in case I want to implement special thing
     }
 
     @Override

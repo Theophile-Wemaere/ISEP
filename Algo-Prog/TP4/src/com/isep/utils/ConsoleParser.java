@@ -89,12 +89,12 @@ public class ConsoleParser implements InputParser
         {
             if(hero instanceof Warrior)
                 if(((Warrior) hero).getWeaponName() != null )
-                    System.out.println("Current weapon : " +((Warrior) hero).getWeaponName() + Integer.toString(((Warrior) hero).getDamage()));
+                    System.out.println("Current weapon : " +((Warrior) hero).getWeaponName() + " - D=" + Integer.toString(((Warrior) hero).getDamage()));
                 else
                     System.out.println("No weapon selected");
             else if(hero instanceof Hunter)
                 if(((Hunter) hero).getWeaponName() != null )
-                    System.out.println("Current weapon : " +((Hunter) hero).getWeaponName() + Integer.toString(((Warrior) hero).getDamage()));
+                    System.out.println("Current weapon : " +((Hunter) hero).getWeaponName() + " - D=" + Integer.toString(((Hunter) hero).getDamage()));
                 else
                     System.out.println("No weapon selected");
             System.out.println("[1] Attack");
@@ -235,8 +235,8 @@ public class ConsoleParser implements InputParser
         System.out.println("\nChoose your weapons : ");    
         if(hero instanceof Warrior)
         {
-            System.out.println("[1] Saber");
-            System.out.println("[2] Giant sword");
+            System.out.println("[1] Saber | 2 damages");
+            System.out.println("[2] Giant sword | 3 damages (1/5 of failing the attack)");
             c = false;
             while(!c)
             {
@@ -251,8 +251,8 @@ public class ConsoleParser implements InputParser
         }
         else if(hero instanceof Hunter)
         {
-            System.out.println("[1] Bow");
-            System.out.println("[2] Crossbow");
+            System.out.println("[1] Bow | 2 damages");
+            System.out.println("[2] Crossbow | 3 damages (1/5 of failing the attack)");
             c = false;
             while(!c)
             {
@@ -267,22 +267,22 @@ public class ConsoleParser implements InputParser
         }
     }
 
-    public int getTarget(ArrayList<Combatant> enemies)
+    public int getTarget(ArrayList<Combatant> targets)
     {
         Scanner scanner = new Scanner(System.in);
         boolean c;
         int choice = 0;
         System.out.println("\nChoose your target : ");
-        for(int i=0;i<enemies.size();i++)
+        for(int i=0;i<targets.size();i++)
         {
-            System.out.println("[" + Integer.toString(i+1) + "]" + " " + enemies.get(i).getName());
+            System.out.println("[" + Integer.toString(i+1) + "]" + " " + targets.get(i).getName() + "(" + Integer.toString(targets.get(i).getHP()) +")");
         }
         c = false;
         while(!c)
         {
             System.out.print("Enter your choice : ");
             choice = scanner.nextInt();
-            if(choice >= 1 && choice <= enemies.size())
+            if(choice >= 1 && choice <= targets.size())
             {
                 c = true;
             }

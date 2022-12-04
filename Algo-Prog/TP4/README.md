@@ -1,10 +1,7 @@
 # java mini RPG
 
 ```
-todo :  fix  error after choosing weapons
-        test healing power on healer
-        fix random chance of failing for fighter
-        add boss
+todo : 
 
 UML modified :
     Hero and every child of Hero are in the com.isep.rpg.hero
