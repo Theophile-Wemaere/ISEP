@@ -2,10 +2,10 @@
 
 ```
 todo : no spell if no mana
-        add consumables use
         fix random chance of failing for fighter
         add enemies damages
         add boss
+        fix damage error
 
 UML modified :
     Hero and every child of Hero are in the com.isep.rpg.hero

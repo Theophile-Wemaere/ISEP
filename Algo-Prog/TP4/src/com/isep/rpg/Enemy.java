@@ -16,4 +16,9 @@ public class Enemy extends Combatant
     {
         target.Damage(this.damage);
     }
+
+    public int getDamage()
+    {
+        return this.damage;
+    }
 }

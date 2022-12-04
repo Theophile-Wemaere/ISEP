@@ -11,7 +11,7 @@ public class Main
             @Override                                                                                                                       
             public void run()                                                                                                               
             {                                                                                                                               
-                System.out.println("\n\nUser interrupt detected\n");                                                                          
+                System.out.println("\n\n\u001B[31m" + "/!\\ User interrupt detected /!\\\n" + "\u001B[0m");                                                                          
             }                                                                                                                               
         });
 

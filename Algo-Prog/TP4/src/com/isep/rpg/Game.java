@@ -42,7 +42,7 @@ public class Game
         {
             Random random = new Random();
             int d = random.nextInt(7 - 5 + 1) + 5; // generate number in [5;7], ranbom defense value
-            int max = EnemiesNames.size() - 1;
+            int max = this.EnemiesNames.size() - 1;
             int n = random.nextInt(max - 0 + 1) + 0; // generate number in [0;max], random name
             Enemy enemy = new Enemy(this.EnemiesNames.get(n),d,3); // 3 damage
             this.enemies.add(enemy);
@@ -52,10 +52,13 @@ public class Game
 
     public void start()
     {
+        Random random = new Random();
+
         while(this.playing)
         {
-            Random random = new Random();
-            for(int i=0; i < heros.size(); i++)
+
+            // heros plays
+            for(int i=0; i < this.heros.size(); i++)
             {
                 clearConsole();
                 printInventory();
@@ -63,9 +66,10 @@ public class Game
                 printEnemies();
 
                 Hero current = heros.get(i);
+                current.gainDefense(2); // gain 2 defense each round
                 System.out.println("\u001B[31m" + current.getName() + "\u001B[0m" + " has to play !\n");
 
-                int choice = this.parser.getAction(current);
+                int choice = this.parser.getAction(current,this.consumables.size());
                 
                 switch(choice)
                 {
@@ -81,10 +85,14 @@ public class Game
                             this.enemies.remove(target);
                         }
                         break;
+
                     case 2:
+                        int item = parser.chooseItem(this.consumables);
+                        current.chooseItem(this.consumables.get(item));
+                        this.consumables.remove(item);
                         break;
                 }
-                
+
                 if(this.enemies.size() == 0)
                 {
                     System.out.println("\nCongratulations, you've won !\n");
@@ -95,6 +103,26 @@ public class Game
                     parser.waitKey();
                 }
             }
+
+            // enemies plays
+            for(int i=0; i < this.enemies.size(); i++)
+            {
+                int max = this.heros.size() - 1;
+                int t = random.nextInt(max - 0 + 1) + 0; // generate number in [0;max], random target
+                this.enemies.get(i).fight(this.heros.get(t));
+                System.out.println(this.enemies.get(i).getName() + " inflict " + Integer.toString(this.enemies.get(i).getDamage()) + " damages to " + this.heros.get(t).getName());
+                if(this.heros.get(t).getHP() == 0)
+                {
+                    this.heros.remove(i);
+                }
+
+                if(this.heros.size() == 0)
+                {
+                    System.out.println("\nAll your heros are dead, darkness has won...\n");
+                    this.playing = false;
+                }
+            }
+            parser.waitKey();
         }
 
     }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.isep.rpg.*;
 import com.isep.rpg.hero.*;
+import com.isep.rpg.item.*;
 
 public class ConsoleParser implements InputParser
 {
@@ -98,7 +99,7 @@ public class ConsoleParser implements InputParser
         return null;     
     }
 
-    public int getAction(Hero hero)
+    public int getAction(Hero hero, int size)
     {
         Scanner scanner = new Scanner(System.in);
         boolean c;
@@ -118,7 +119,7 @@ public class ConsoleParser implements InputParser
         {
             System.out.print("Enter your choice : ");
             choice = scanner.nextInt();
-            if(choice == 1 || choice == 2)
+            if(choice == 1 || (choice == 2 && size != 0)) // we need to have items in the inventory
             {
                 c = true;
             }
@@ -181,10 +182,33 @@ public class ConsoleParser implements InputParser
         return choice-1;
     }
 
+    public int chooseItem(ArrayList<Consumable> consumables)
+    {
+        Scanner scanner = new Scanner(System.in);
+        boolean c;
+        int choice = 0;
+        System.out.println("\nWhich item do you want to use : ");
+        for(int i=0;i<consumables.size();i++)
+        {
+            System.out.println("[" + Integer.toString(i+1) + "]" + " " + consumables.get(i).getName() + " - Power : " + Integer.toString(consumables.get(i).getHealingPoints()));
+        }
+        c = false;
+        while(!c)
+        {
+            System.out.print("Enter your choice : ");
+            choice = scanner.nextInt();
+            if(choice >= 1 && choice <= consumables.size())
+            {
+                c = true;
+            }
+        }
+        return choice-1;
+    }
+
     public void waitKey()
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("\nPress any key to continue...");
+        System.out.print("\nPress any key to continue...\n");
         scanner.nextLine();
     }
 
