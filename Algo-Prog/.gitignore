@@ -1,1 +1,3 @@
 add */java-bin/
+*.class
+
