@@ -43,7 +43,7 @@ public class Weapon extends Item
     {
         if(this.malus)
         {
-            if (Math.random() < 0.2) // Math.random() return a random double : 0 <= Math.random() < 1
+            if (Math.random() < 0.5) // Math.random() return a random double : 0 <= Math.random() < 1
             {
                 return false;
             } 

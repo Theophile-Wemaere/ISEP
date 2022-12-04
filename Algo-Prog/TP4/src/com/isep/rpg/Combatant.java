@@ -46,7 +46,7 @@ public abstract class Combatant
             if(this.healthPoint <= 0)
             {
                 this.healthPoint = 0;
-                System.out.println("\n" + this.name + " is dead");
+                System.out.println("\u001B[31m" + this.name + " is dead" + "\u001B[0m");
             }
         }
     }

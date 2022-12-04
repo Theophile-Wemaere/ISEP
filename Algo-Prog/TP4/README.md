@@ -1,9 +1,9 @@
 # java mini RPG
 
 ```
-todo : no spell if no mana
+todo :  add random damage for enemy
+        test healing power on healer
         fix random chance of failing for fighter
-        add enemies damages
         add boss
         fix damage error
 

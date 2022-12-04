@@ -1,0 +1,107 @@
+[H[2J
+How many heros (max 4) : [H[2J
+Choose your hero classe : 
+[1] Warrior : powerfull and solid (HP:4|Defense:5|MaxDamage:3)
+[2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)
+[3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)
+[4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)
+Enter your choice : 
+Choose your weapons : 
+[1] Saber
+[2] Giant sword
+Enter your choice : [H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(4-5-0) ]
+Enemies   -> [ Shelob(5-5) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : saber
+[1] Attack
+[2] Use consumables
+[3] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Shelob
+Enter your choice : 
+Aragorn inflicts 2 damages to Shelob
+
+Press any key to continue...
+[33mThe enemies strike back ![0m
+Shelob inflict 4 damages to Aragorn
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(4-1-0) ]
+Enemies   -> [ Shelob(5-3) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : saber
+[1] Attack
+[2] Use consumables
+[3] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Shelob
+Enter your choice : 
+Aragorn inflicts 2 damages to Shelob
+
+Press any key to continue...
+[33mThe enemies strike back ![0m
+Shelob inflict 4 damages to Aragorn
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(3-0-0) ]
+Enemies   -> [ Shelob(5-1) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : saber
+[1] Attack
+[2] Use consumables
+[3] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Shelob
+Enter your choice : 
+Aragorn inflicts 2 damages to Shelob
+
+Press any key to continue...
+[33mThe enemies strike back ![0m
+Shelob inflict 4 damages to Aragorn
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(1-0-0) ]
+Enemies   -> [ Shelob(4-0) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : saber
+[1] Attack
+[2] Use consumables
+[3] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Shelob
+Enter your choice : 
+Aragorn inflicts 2 damages to Shelob
+
+Press any key to continue...
+[33mThe enemies strike back ![0m
+Shelob inflict 4 damages to Aragorn
+[31mAragorn is dead[0m
+
+All your heros are dead, darkness has won...
+[33m通常兵器はエンジェルズに勝てない[0m
+
+Press any key to continue...
+
+
+[31m/!\ User interrupt detected /!\
+[0m

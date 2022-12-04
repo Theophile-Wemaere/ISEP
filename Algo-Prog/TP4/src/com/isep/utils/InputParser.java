@@ -12,7 +12,7 @@ public interface InputParser
     public Hero getHeroClasse();
     public int getAction(Hero hero, int size);
     public void chooseSpell(SpellCaster hero);
-    public int getTarget(ArrayList<Enemy> enemies);
+    public int getTarget(ArrayList<Combatant> enemies);
     public int chooseItem(ArrayList<Consumable> consumables);
     public void waitKey();
 }

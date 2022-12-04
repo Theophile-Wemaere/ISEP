@@ -29,6 +29,17 @@ public class Mage extends SpellCaster
         return this.mana;
     }
 
+    @Override
+    public int getSpellCost()
+    {
+        return this.spell.getManaCost();
+    }
+
+    @Override
+    public String getSpellName()
+    {
+        return this.spell.getName();
+    }
 
     @Override
     public void fight(Combatant target)

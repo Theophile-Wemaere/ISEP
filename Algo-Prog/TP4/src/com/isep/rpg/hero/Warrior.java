@@ -36,12 +36,12 @@ public class Warrior extends Hero
         switch(n)
         {
             case 1:
-                item = new Weapon("giant sword");
+                item = new Weapon("saber");
                 this.weapon = item;
                 break;
 
             case 2:
-                item = new Weapon("saber");
+                item = new Weapon("giant sword");
                 this.weapon = item;
                 break;
         }
@@ -59,5 +59,10 @@ public class Warrior extends Hero
     public void changeDamages(int n)
     {
         this.damages += n;
+    }
+
+    public String getWeaponName()
+    {
+        return this.weapon.getName();
     }
 }

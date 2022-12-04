@@ -55,8 +55,8 @@ public class ConsoleParser implements InputParser
             case 1:
                 Warrior warrior = new Warrior("Aragorn");
                 System.out.println("\nChoose your weapons : ");
-                System.out.println("[1] Giant sword");
-                System.out.println("[2] Saber");
+                System.out.println("[1] Saber");
+                System.out.println("[2] Giant sword");
                 c = false;
                 while(!c)
                 {
@@ -102,7 +102,7 @@ public class ConsoleParser implements InputParser
     public int getAction(Hero hero, int size)
     {
         Scanner scanner = new Scanner(System.in);
-        boolean c;
+        boolean c, minMana = false;
         int choice = 0;
         System.out.println("What will " + hero.getName() + " do : ");
         if(hero instanceof SpellCaster)
@@ -111,17 +111,55 @@ public class ConsoleParser implements InputParser
         }        
         else
         {
+            if(hero instanceof Warrior)
+                System.out.println("Current weapon : " +((Warrior) hero).getWeaponName());
+            else if(hero instanceof Hunter)
+                System.out.println("Current weapon : " +((Hunter) hero).getWeaponName());
             System.out.println("[1] Attack");
         }
         System.out.println("[2] Use consumables");
+        System.out.println("[3] Pass this tour");
         c = false;
+        
         while(!c)
         {
             System.out.print("Enter your choice : ");
             choice = scanner.nextInt();
-            if(choice == 1 || (choice == 2 && size != 0)) // we need to have items in the inventory
+            if(hero instanceof SpellCaster)
             {
-                c = true;
+                if(hero instanceof Mage)
+                {
+                    if(hero.getMana() > 0)
+                    {
+                        minMana = true;
+                    }
+                    else
+                    {
+                        System.out.println("\u001B[33m" + "Carefull, " + hero.getName() + " doesn't have enough mana to use spells" + "\u001B[0m");
+                    }
+                }
+                else if(hero instanceof Healer)
+                {
+                    if(hero.getMana() > 1)
+                    {
+                        minMana = true;
+                    }
+                    else
+                    {
+                        System.out.println("\u001B[33m" + "Carefull, " + hero.getName() + " doesn't have enough mana to use spells" + "\u001B[0m");
+                    }
+                }
+                if((choice == 1 && minMana) || (choice == 2 && size != 0) || choice == 3)
+                {
+                    c = true;
+                }
+            }
+            else
+            {
+                if(choice == 1 || (choice == 2 && size != 0) || choice == 3)
+                {
+                    c = true;
+                }
             }
         }
         return choice;
@@ -153,13 +191,23 @@ public class ConsoleParser implements InputParser
             choice = scanner.nextInt();
             if(choice >= 1 && choice <= max)
             {
-                c = true;
+                hero.chooseSpell(choice);
+                int manaCost = hero.getSpellCost();
+                int manaAmount = hero.getMana();
+                if(manaCost <= manaAmount)
+                {
+                    c = true;
+                }
+                else
+                {
+                    System.out.println("\u001B[33m" + "Carefull, " + hero.getName() + " doesn't have enough mana for this spell" + "\u001B[0m");
+                }
             }
         }
-        hero.chooseSpell(choice);
+        
     }
 
-    public int getTarget(ArrayList<Enemy> enemies)
+    public int getTarget(ArrayList<Combatant> enemies)
     {
         Scanner scanner = new Scanner(System.in);
         boolean c;

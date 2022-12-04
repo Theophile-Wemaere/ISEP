@@ -29,20 +29,33 @@ public class Healer extends SpellCaster
         return this.mana;
     }
 
+    @Override
+    public int getSpellCost()
+    {
+        return this.spell.getManaCost();
+    }
+
+    @Override
+    public String getSpellName()
+    {
+        return this.spell.getName();
+    }
+
 
     @Override
     public void fight(Combatant target)
     {
         // complicated structure in case I have the time to add special effects stuff like zone effect or secondary effect
-        System.out.println("\n" + this.name + " inflicts " + Integer.toString(this.spell.getDamage()) + " damages to " + target.getName());
         switch(this.spell.getName())
         {
             case "holy ray":
+                System.out.println("\n" + this.name + " inflicts " + Integer.toString(this.spell.getDamage()) + " damages to " + target.getName());
                 target.Damage(this.spell.getDamage());
                 this.mana -= this.spell.getManaCost();
                 break;
 
             case "healing touch":
+                System.out.println("\n" + this.name + " restore " + Integer.toString(this.spell.getDamage()) + " HP of " + target.getName());
                 target.Heal(this.spell.getDamage());
                 if (target instanceof SpellCaster) // also add mana for now
                 {

@@ -33,6 +33,7 @@ public class Hunter extends Hero
     public void chooseWeapons(int n)
     {
         Weapon item;
+        System.out.println(n);
         switch(n)
         {
             case 1:
@@ -59,5 +60,10 @@ public class Hunter extends Hero
     public void changeDamages(int n)
     {
         this.damages += n;
+    }
+
+    public String getWeaponName()
+    {
+        return this.weapon.getName();
     }
 }
