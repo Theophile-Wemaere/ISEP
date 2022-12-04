@@ -38,9 +38,17 @@ public class Healer extends SpellCaster
     @Override
     public String getSpellName()
     {
-        return this.spell.getName();
+        if(this.spell != null)
+            return this.spell.getName();
+        else
+            return null;
     }
 
+    @Override
+    public int getSpellDamage()
+    {
+        return this.spell.getDamage();
+    }
 
     @Override
     public void fight(Combatant target)

@@ -64,6 +64,14 @@ public class Hunter extends Hero
 
     public String getWeaponName()
     {
-        return this.weapon.getName();
+         if(this.weapon != null)
+            return this.weapon.getName();
+        else
+            return null;   
+    }
+
+    public int getDamage()
+    {
+        return this.damages;
     }
 }

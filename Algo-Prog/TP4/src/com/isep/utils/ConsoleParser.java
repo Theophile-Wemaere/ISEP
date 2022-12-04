@@ -49,43 +49,14 @@ public class ConsoleParser implements InputParser
                 c = true;
             }
         }
-        int weapon;
         switch(choice)
         {
             case 1:
                 Warrior warrior = new Warrior("Aragorn");
-                System.out.println("\nChoose your weapons : ");
-                System.out.println("[1] Saber");
-                System.out.println("[2] Giant sword");
-                c = false;
-                while(!c)
-                {
-                    System.out.print("Enter your choice : ");
-                    weapon = scanner.nextInt();
-                    if(weapon == 1 || weapon == 2)
-                    {
-                        c = true;
-                        warrior.chooseWeapons(weapon);
-                    }
-                }
                 return warrior;
             
             case 2:
                 Hunter hunter = new Hunter("Legolas");
-                System.out.println("\nChoose your weapons : ");
-                System.out.println("[1] Bow");
-                System.out.println("[2] Crossbow");
-                c = false;
-                while(!c)
-                {
-                    System.out.print("Enter your choice : ");
-                    weapon = scanner.nextInt();
-                    if(weapon == 1 || weapon == 2)
-                    {
-                        c = true;
-                        hunter.chooseWeapons(weapon);
-                    }
-                }
                 return hunter;
 
             case 3:
@@ -107,18 +78,30 @@ public class ConsoleParser implements InputParser
         System.out.println("What will " + hero.getName() + " do : ");
         if(hero instanceof SpellCaster)
         {
-            System.out.println("[1] Use a spell");
+            if(((SpellCaster) hero).getSpellName() != null )
+                System.out.println("Current spell : " + ((SpellCaster) hero).getSpellName() + " - D=" + Integer.toString(((SpellCaster) hero).getSpellDamage()));
+            else
+                System.out.println("No spell selected");
+            System.out.println("[1] Attack");
+            System.out.println("[2] Use a spell");
         }        
         else
         {
             if(hero instanceof Warrior)
-                System.out.println("Current weapon : " +((Warrior) hero).getWeaponName());
+                if(((Warrior) hero).getWeaponName() != null )
+                    System.out.println("Current weapon : " +((Warrior) hero).getWeaponName() + Integer.toString(((Warrior) hero).getDamage()));
+                else
+                    System.out.println("No weapon selected");
             else if(hero instanceof Hunter)
-                System.out.println("Current weapon : " +((Hunter) hero).getWeaponName());
+                if(((Hunter) hero).getWeaponName() != null )
+                    System.out.println("Current weapon : " +((Hunter) hero).getWeaponName() + Integer.toString(((Warrior) hero).getDamage()));
+                else
+                    System.out.println("No weapon selected");
             System.out.println("[1] Attack");
+            System.out.println("[2] Choose a weapon");
         }
-        System.out.println("[2] Use consumables");
-        System.out.println("[3] Pass this tour");
+        System.out.println("[3] Use consumables");
+        System.out.println("[4] Pass this tour");
         c = false;
         
         while(!c)
@@ -149,16 +132,53 @@ public class ConsoleParser implements InputParser
                         System.out.println("\u001B[33m" + "Carefull, " + hero.getName() + " doesn't have enough mana to use spells" + "\u001B[0m");
                     }
                 }
-                if((choice == 1 && minMana) || (choice == 2 && size != 0) || choice == 3)
+                if((choice == 1 && ((SpellCaster) hero).getSpellName() != null) && minMana)
+                {
+                    c = true;
+                }
+                else if (choice == 1)
+                {
+                    System.out.println("\u001B[33m" + "Please select a spell first to attack" + "\u001B[0m");
+                }
+                
+                if((choice == 2 && minMana) || (choice == 3 && size != 0) || choice == 4 )
                 {
                     c = true;
                 }
             }
             else
             {
-                if(choice == 1 || (choice == 2 && size != 0) || choice == 3)
+                if(hero instanceof Warrior)
                 {
-                    c = true;
+                    if((choice == 1 && ((Warrior) hero).getWeaponName() != null))
+                    {
+                        c = true;
+                    }
+                    else if(choice == 1)
+                    {
+                        System.out.println("\u001B[33m" + "Please select a weapon first to attack" + "\u001B[0m");
+                    }
+
+                    if(choice == 2 || (choice == 3 && size != 0) || choice == 4)
+                    {
+                        c = true;
+                    }
+                }
+                else if(hero instanceof Hunter)
+                {
+                    if((choice == 1 && ((Hunter) hero).getWeaponName() != null))
+                    {
+                        c = true;
+                    }
+                    else if(choice == 1)
+                    {
+                        System.out.println("\u001B[33m" + "Please select a weapon first to attack" + "\u001B[0m");
+                    }
+                    
+                    if(choice == 2 || (choice == 3 && size != 0) || choice == 4)
+                    {
+                        c = true;
+                    }
                 }
             }
         }
@@ -205,6 +225,46 @@ public class ConsoleParser implements InputParser
             }
         }
         
+    }
+
+    public void chooseWeapon(Hero hero)
+    {
+        Scanner scanner = new Scanner(System.in);
+        boolean c = false;
+        int weapon;
+        System.out.println("\nChoose your weapons : ");    
+        if(hero instanceof Warrior)
+        {
+            System.out.println("[1] Saber");
+            System.out.println("[2] Giant sword");
+            c = false;
+            while(!c)
+            {
+                System.out.print("Enter your choice : ");
+                weapon = scanner.nextInt();
+                if(weapon == 1 || weapon == 2)
+                {
+                    c = true;
+                    ((Warrior) hero).chooseWeapons(weapon);
+                }
+            }
+        }
+        else if(hero instanceof Hunter)
+        {
+            System.out.println("[1] Bow");
+            System.out.println("[2] Crossbow");
+            c = false;
+            while(!c)
+            {
+                System.out.print("Enter your choice : ");
+                weapon = scanner.nextInt();
+                if(weapon == 1 || weapon == 2)
+                {
+                    c = true;
+                    ((Hunter) hero).chooseWeapons(weapon);
+                }
+            }
+        }
     }
 
     public int getTarget(ArrayList<Combatant> enemies)

@@ -41,10 +41,10 @@ public class Game
         for(int i=0;i<this.number;i++)
         {
             Random random = new Random();
-            int d = random.nextInt(7 - 5 + 1) + 5; // generate number in [5;7], ranbom defense value
+            int d = random.nextInt(7 - 5 + 1) + 5; // generate number in [5;7], random defense value
             int max = this.EnemiesNames.size() - 1;
             int n = random.nextInt(max - 0 + 1) + 0; // generate number in [0;max], random name
-            Enemy enemy = new Enemy(this.EnemiesNames.get(n),d,4); // 4 damage
+            Enemy enemy = new Enemy(this.EnemiesNames.get(n),d);
             this.enemies.add(enemy);
             this.EnemiesNames.remove(n);
         }
@@ -59,7 +59,7 @@ public class Game
 
             if(this.boss)
             {
-                System.out.println("\u001B[33m" + "All the enemies are dead, the final boss is waiting..." + "\u001B[0m");
+                System.out.println("\u001B[33m" + "The boss strikes back !" + "\u001B[0m");
                 playBoss();
             }
             else
@@ -79,12 +79,11 @@ public class Game
         Random random = new Random();
         for(int i=0; i < this.heros.size(); i++)
         {
+            Hero current = (Hero) heros.get(i);
             clearConsole();
             printInventory();
             printHeros();
             printEnemies();
-
-            Hero current = (Hero) heros.get(i);
             current.gainDefense(2); // gain 2 defense each round
             System.out.println("\u001B[31m" + current.getName() + "\u001B[0m" + " has to play !\n");
 
@@ -95,7 +94,6 @@ public class Game
                 case 1: // attack mode
                     if(current instanceof SpellCaster)
                     {
-                        parser.chooseSpell((SpellCaster) current);
                         if(current instanceof Healer)
                         {
                             if(((SpellCaster) current).getSpellName().equals("healing touch"))
@@ -122,14 +120,26 @@ public class Game
                     break;
 
                 case 2:
+                    if(current instanceof SpellCaster)
+                    {
+                        parser.chooseSpell((SpellCaster) current);
+                    }
+                    else
+                    {
+                        parser.chooseWeapon(current);
+                    }
+                    choice = 1; // move to attack mode
+
+                case 3:
                     int item = parser.chooseItem(this.consumables);
                     current.chooseItem(this.consumables.get(item));
                     this.consumables.remove(item);
                     break;
             }
 
-            if(this.enemies.size() == 0)
+            if(this.enemies.size() == 0 && !this.boss)
             {
+                System.out.println("\u001B[33m" + "All the enemies are dead, the final boss is waiting..." + "\u001B[0m");
                 this.boss = true;
             }
             else

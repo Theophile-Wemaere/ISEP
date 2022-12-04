@@ -5,103 +5,69 @@ Choose your hero classe :
 [2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)
 [3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)
 [4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)
+Enter your choice : [H[2J
+Choose your hero classe : 
+[1] Warrior : powerfull and solid (HP:4|Defense:5|MaxDamage:3)
+[2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)
+[3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)
+[4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)
+Enter your choice : [H[2J
+Choose your hero classe : 
+[1] Warrior : powerfull and solid (HP:4|Defense:5|MaxDamage:3)
+[2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)
+[3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)
+[4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)
+Enter your choice : [H[2J
+Choose your hero classe : 
+[1] Warrior : powerfull and solid (HP:4|Defense:5|MaxDamage:3)
+[2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)
+[3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)
+[4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)
+Enter your choice : [H[2JInventory -> [ onigiri | ramen | ramen | simple healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-7) | Elrond(4-3-8) ]
+Enemies   -> [ Lurtz(5-7) | Azog(5-5) | Smaug(5-5) | Shelob(5-6) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+No weapon selected
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
 Enter your choice : 
 Choose your weapons : 
 [1] Saber
 [2] Giant sword
-Enter your choice : [H[2JInventory -> [ simple healing potion ]
-Heros     -> [ Aragorn(4-5-0) ]
-Enemies   -> [ Shelob(5-5) ]
+Enter your choice : 
+Which item do you want to use : 
+[1] onigiri - Power : 2
+[2] ramen - Power : 4
+[3] ramen - Power : 4
+[4] simple healing potion - Power : 2
+Enter your choice : Cannot add HP, max HP = 4
 
-[31mAragorn[0m has to play !
+Press any key to continue...
+[H[2JInventory -> [ ramen | ramen | simple healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-7) | Elrond(4-3-8) ]
+Enemies   -> [ Lurtz(5-7) | Azog(5-5) | Smaug(5-5) | Shelob(5-6) ]
 
-What will Aragorn do : 
-Current weapon : saber
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+No weapon selected
 [1] Attack
-[2] Use consumables
-[3] Pass this tour
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
 Enter your choice : 
-Choose your target : 
-[1] Shelob
+Choose your weapons : 
+[1] Bow
+[2] Crossbow
+Enter your choice : 2
+
+Which item do you want to use : 
+[1] ramen - Power : 4
+[2] ramen - Power : 4
+[3] simple healing potion - Power : 2
 Enter your choice : 
-Aragorn inflicts 2 damages to Shelob
-
-Press any key to continue...
-[33mThe enemies strike back ![0m
-Shelob inflict 4 damages to Aragorn
-
-Press any key to continue...
-[H[2JInventory -> [ simple healing potion ]
-Heros     -> [ Aragorn(4-1-0) ]
-Enemies   -> [ Shelob(5-3) ]
-
-[31mAragorn[0m has to play !
-
-What will Aragorn do : 
-Current weapon : saber
-[1] Attack
-[2] Use consumables
-[3] Pass this tour
-Enter your choice : 
-Choose your target : 
-[1] Shelob
-Enter your choice : 
-Aragorn inflicts 2 damages to Shelob
-
-Press any key to continue...
-[33mThe enemies strike back ![0m
-Shelob inflict 4 damages to Aragorn
-
-Press any key to continue...
-[H[2JInventory -> [ simple healing potion ]
-Heros     -> [ Aragorn(3-0-0) ]
-Enemies   -> [ Shelob(5-1) ]
-
-[31mAragorn[0m has to play !
-
-What will Aragorn do : 
-Current weapon : saber
-[1] Attack
-[2] Use consumables
-[3] Pass this tour
-Enter your choice : 
-Choose your target : 
-[1] Shelob
-Enter your choice : 
-Aragorn inflicts 2 damages to Shelob
-
-Press any key to continue...
-[33mThe enemies strike back ![0m
-Shelob inflict 4 damages to Aragorn
-
-Press any key to continue...
-[H[2JInventory -> [ simple healing potion ]
-Heros     -> [ Aragorn(1-0-0) ]
-Enemies   -> [ Shelob(4-0) ]
-
-[31mAragorn[0m has to play !
-
-What will Aragorn do : 
-Current weapon : saber
-[1] Attack
-[2] Use consumables
-[3] Pass this tour
-Enter your choice : 
-Choose your target : 
-[1] Shelob
-Enter your choice : 
-Aragorn inflicts 2 damages to Shelob
-
-Press any key to continue...
-[33mThe enemies strike back ![0m
-Shelob inflict 4 damages to Aragorn
-[31mAragorn is dead[0m
-
-All your heros are dead, darkness has won...
-[33m通常兵器はエンジェルズに勝てない[0m
-
-Press any key to continue...
-
-
-[31m/!\ User interrupt detected /!\
-[0m

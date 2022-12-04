@@ -10,4 +10,5 @@ public abstract class SpellCaster extends Hero
     public abstract void chooseSpell(int n);
     public abstract int getSpellCost();
     public abstract String getSpellName();
+    public abstract int getSpellDamage();
 }

@@ -8,7 +8,7 @@ public class Mage extends SpellCaster
 {
     private String name;
     private int mana;
-    private Magie spell;
+    private Magie spell = null;
 
     public Mage(String name)
     {
@@ -38,7 +38,16 @@ public class Mage extends SpellCaster
     @Override
     public String getSpellName()
     {
-        return this.spell.getName();
+        if(this.spell != null)
+            return this.spell.getName();
+        else
+            return null;
+    }
+
+    @Override
+    public int getSpellDamage()
+    {
+        return this.spell.getDamage();
     }
 
     @Override

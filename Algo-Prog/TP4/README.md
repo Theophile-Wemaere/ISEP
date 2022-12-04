@@ -1,11 +1,10 @@
 # java mini RPG
 
 ```
-todo :  add random damage for enemy
+todo :  fix  error after choosing weapons
         test healing power on healer
         fix random chance of failing for fighter
         add boss
-        fix damage error
 
 UML modified :
     Hero and every child of Hero are in the com.isep.rpg.hero

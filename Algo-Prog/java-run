@@ -1,19 +1,56 @@
 #!/bin/bash
 
-if ! [ -d "java-bin" ]
+if [[ "$1" == "--clean" ]]
 then
-    mkdir java-bin
+    for i in $(find . -type d)
+    do
+        rm $i/*.class > /dev/null 2>&1
+    done
+    if [ -d "java-bin" ]
+    then 
+        rm -rf java-bin/* > /dev/null 2>&1
+    fi
+elif [[ "$1" == "--jfx" ]]
+then
+    PATH_TO_FX=/usr/lib/jvm/java/javafx-sdk-19/lib
+    javac --module-path $PATH_TO_FX --add-modules javafx.controls Main.java 
+    if [ -d "java-bin" ]
+    then
+        rm -rf java-bin/* > /dev/null 2>&1
+    else
+        mkdir java-bin
+    fi
+    mv *.class java-bin/ > /dev/null 2>&1
+    cd java-bin
+    java --module-path $PATH_TO_FX --add-modules javafx.controls Main 
+elif [[ "$1" == "--package" ]]
+then
+    for i in $(find . -type d)
+    do
+        rm $i/*.class > /dev/null 2>&1
+        javac $i/*.java 
+    done
+    
+    java Main
+
+elif [[ "$1" != *".java"* ]]
+then
+    if ! [ -d "java-bin" ]
+    then
+        mkdir java-bin
+    else
+        rm java-bin/*.class > /dev/null 2>&1
+    fi
+
+    if [[ "$1" != "" ]] # if there is a file needed for the code to execute (e.g. : a text file to read)
+    then
+        cp $1 java-bin/ > /dev/null 2>&1
+    fi
+
+    cd java-bin
+    java Main
 else
-    rm java-bin/*.class
+    echo "Unknow option : $i"
+    echo ""
+    echo "Use --clean, --package or specify the path to a file before compiling"
 fi
-
-javac *.java
-mv *.class java-bin/
-
-if [[ "$1" != "" ]]
-then
-    cp $1 java-bin/
-fi
-
-cd java-bin
-java Main
