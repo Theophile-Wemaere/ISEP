@@ -5,9 +5,107 @@ Choose your hero classe :
 [2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)
 [3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)
 [4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)
-Enter your choice : [H[2JInventory -> [ sushis ]
-Heros     -> [ Elrond(4-3-8) ]
-Enemies   -> [ Smaug(5-5) ]
+Enter your choice : [H[2J
+Choose your hero classe : 
+[1] Warrior : powerfull and solid (HP:4|Defense:5|MaxDamage:3)
+[2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)
+[3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)
+[4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)
+Enter your choice : [H[2J
+Choose your hero classe : 
+[1] Warrior : powerfull and solid (HP:4|Defense:5|MaxDamage:3)
+[2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)
+[3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)
+[4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)
+Enter your choice : [H[2J
+Choose your hero classe : 
+[1] Warrior : powerfull and solid (HP:4|Defense:5|MaxDamage:3)
+[2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)
+[3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)
+[4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)
+Enter your choice : [H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-7) | Elrond(4-3-8) ]
+Enemies   -> [ Smaug(5-6) | Lurtz(5-5) | Azog(5-7) | Shelob(5-6) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+No weapon selected
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your weapons : 
+[1] Saber | 2 damages
+[2] Giant sword | 3 damages (1/5 of failing the attack)
+Enter your choice : 
+Choose your target : 
+[1] Smaug(5)
+[2] Lurtz(5)
+[3] Azog(5)
+[4] Shelob(5)
+Enter your choice : 
+Aragorn inflicts 3 damages to Smaug
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-7) | Elrond(4-3-8) ]
+Enemies   -> [ Smaug(5-3) | Lurtz(5-5) | Azog(5-7) | Shelob(5-6) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+No weapon selected
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your weapons : 
+[1] Bow | 2 damages
+[2] Crossbow | 3 damages (1/5 of failing the attack)
+Enter your choice : 1
+
+Choose your target : 
+[1] Smaug(5)
+[2] Lurtz(5)
+[3] Azog(5)
+[4] Shelob(5)
+Enter your choice : 
+Legolas inflicts 2 damages to Smaug
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-7) | Elrond(4-3-8) ]
+Enemies   -> [ Smaug(5-1) | Lurtz(5-5) | Azog(5-7) | Shelob(5-6) ]
+
+[31mGandalf[0m has to play !
+
+What will Gandalf do : 
+No spell selected
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your spell : 
+[1] Ice pick -> Damage = 2, Mana cost = 1
+[2] Lightning -> Damage = 3, Mana cost = 3
+[3] Fire storm -> Damage = 5, Mana cost = 5
+Enter your choice : 
+Choose your target : 
+[1] Smaug(5)
+[2] Lurtz(5)
+[3] Azog(5)
+[4] Shelob(5)
+Enter your choice : 
+Gandalf inflicts 5 damages to Smaug
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-2) | Elrond(4-3-8) ]
+Enemies   -> [ Smaug(1-0) | Lurtz(5-5) | Azog(5-7) | Shelob(5-6) ]
 
 [31mElrond[0m has to play !
 
@@ -17,4 +115,748 @@ No spell selected
 [2] Use a spell
 [3] Use consumables
 [4] Pass this tour
-Enter your choice : Enter your choice : 
+Enter your choice : 
+Choose your spell : 
+[1] Holy ray -> Damage = 2, Mana cost = 2
+[2] Healing touch -> Heal = 2, Mana cost = 2
+Enter your choice : 
+Choose your target : 
+[1] Smaug(1)
+[2] Lurtz(5)
+[3] Azog(5)
+[4] Shelob(5)
+Enter your choice : 
+Elrond inflicts 2 damages to Smaug
+[31mSmaug is dead[0m
+
+Press any key to continue...
+[33mThe enemies strike back ![0m
+Lurtz inflict 2 damages to Aragorn
+Azog inflict 4 damages to Elrond
+Shelob inflict 4 damages to Gandalf
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(3-2-2) | Elrond(3-2-6) ]
+Enemies   -> [ Lurtz(5-5) | Azog(5-7) | Shelob(5-6) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : giant sword - D=3
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Lurtz(5)
+[2] Azog(5)
+[3] Shelob(5)
+Enter your choice : 
+Aragorn miss his attack using giant sword
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(3-2-2) | Elrond(3-2-6) ]
+Enemies   -> [ Lurtz(5-5) | Azog(5-7) | Shelob(5-6) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+Current weapon : bow - D=2
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Lurtz(5)
+[2] Azog(5)
+[3] Shelob(5)
+Enter your choice : 
+Legolas inflicts 2 damages to Lurtz
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(3-2-2) | Elrond(3-2-6) ]
+Enemies   -> [ Lurtz(5-3) | Azog(5-7) | Shelob(5-6) ]
+
+[31mGandalf[0m has to play !
+
+What will Gandalf do : 
+Current spell : fire storm - D=5
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your spell : 
+[1] Ice pick -> Damage = 2, Mana cost = 1
+[2] Lightning -> Damage = 3, Mana cost = 3
+[3] Fire storm -> Damage = 5, Mana cost = 5
+Enter your choice : 
+Choose your target : 
+[1] Lurtz(5)
+[2] Azog(5)
+[3] Shelob(5)
+Enter your choice : 
+Gandalf inflicts 2 damages to Lurtz
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(3-2-1) | Elrond(3-2-6) ]
+Enemies   -> [ Lurtz(5-1) | Azog(5-7) | Shelob(5-6) ]
+
+[31mElrond[0m has to play !
+
+What will Elrond do : 
+Current spell : holy ray - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your spell : 
+[1] Holy ray -> Damage = 2, Mana cost = 2
+[2] Healing touch -> Heal = 2, Mana cost = 2
+Enter your choice : 
+Choose your target : 
+[1] Aragorn(4)
+[2] Legolas(4)
+[3] Gandalf(3)
+[4] Elrond(3)
+Enter your choice : 
+Elrond restore 2 HP of Gandalf
+
+Press any key to continue...
+[33mThe enemies strike back ![0m
+Lurtz inflict 4 damages to Legolas
+Azog inflict 4 damages to Aragorn
+Shelob inflict 3 damages to Elrond
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-3-0) | Legolas(4-2-0) | Gandalf(4-3-5) | Elrond(2-2-3) ]
+Enemies   -> [ Lurtz(5-1) | Azog(5-7) | Shelob(5-6) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : giant sword - D=3
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Lurtz(5)
+[2] Azog(5)
+[3] Shelob(5)
+Enter your choice : 
+Aragorn inflicts 3 damages to Azog
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-3-0) | Legolas(4-2-0) | Gandalf(4-3-5) | Elrond(2-2-3) ]
+Enemies   -> [ Lurtz(5-1) | Azog(5-4) | Shelob(5-6) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+Current weapon : bow - D=2
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Lurtz(5)
+[2] Azog(5)
+[3] Shelob(5)
+Enter your choice : 
+Legolas inflicts 2 damages to Lurtz
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-3-0) | Legolas(4-2-0) | Gandalf(4-3-5) | Elrond(2-2-3) ]
+Enemies   -> [ Lurtz(4-0) | Azog(5-4) | Shelob(5-6) ]
+
+[31mGandalf[0m has to play !
+
+What will Gandalf do : 
+Current spell : ice pick - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your spell : 
+[1] Ice pick -> Damage = 2, Mana cost = 1
+[2] Lightning -> Damage = 3, Mana cost = 3
+[3] Fire storm -> Damage = 5, Mana cost = 5
+Enter your choice : 
+Choose your target : 
+[1] Lurtz(4)
+[2] Azog(5)
+[3] Shelob(5)
+Enter your choice : 
+Gandalf inflicts 5 damages to Lurtz
+[31mLurtz is dead[0m
+Gandalf is out of mana
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-3-0) | Legolas(4-2-0) | Gandalf(4-3-0) | Elrond(2-2-3) ]
+Enemies   -> [ Azog(5-4) | Shelob(5-6) ]
+
+[31mElrond[0m has to play !
+
+What will Elrond do : 
+Current spell : healing touch - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Aragorn(4)
+[2] Legolas(4)
+[3] Gandalf(4)
+[4] Elrond(2)
+Enter your choice : 
+Elrond restore 2 HP of Gandalf
+Gandalf is completly healed
+Elrond is out of mana
+
+Press any key to continue...
+[33mThe enemies strike back ![0m
+Azog inflict 3 damages to Elrond
+Shelob inflict 2 damages to Legolas
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-2-0) | Gandalf(4-3-4) | Elrond(1-2-0) ]
+Enemies   -> [ Azog(5-4) | Shelob(5-6) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : giant sword - D=3
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Azog(5)
+[2] Shelob(5)
+Enter your choice : 
+Aragorn inflicts 3 damages to Azog
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-2-0) | Gandalf(4-3-4) | Elrond(1-2-0) ]
+Enemies   -> [ Azog(5-1) | Shelob(5-6) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+Current weapon : bow - D=2
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Azog(5)
+[2] Shelob(5)
+Enter your choice : 
+Legolas inflicts 2 damages to Azog
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-2-0) | Gandalf(4-3-4) | Elrond(1-2-0) ]
+Enemies   -> [ Azog(4-0) | Shelob(5-6) ]
+
+[31mGandalf[0m has to play !
+
+What will Gandalf do : 
+Current spell : fire storm - D=5
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Azog(4)
+[2] Shelob(5)
+Enter your choice : 
+Gandalf inflicts 5 damages to Azog
+[31mAzog is dead[0m
+Gandalf is out of mana
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion | high healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-2-0) | Gandalf(4-3-0) | Elrond(1-2-0) ]
+Enemies   -> [ Shelob(5-6) ]
+
+[31mElrond[0m has to play !
+
+What will Elrond do : 
+Current spell : healing touch - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : [33mCareful, Elrond doesn't have enough mana to use spells[0m
+
+Which item do you want to use : 
+[1] sushis - Power : 3
+[2] simple healing potion - Power : 2
+[3] medium healing potion - Power : 3
+[4] high healing potion - Power : 4
+Enter your choice : 
+Press any key to continue...
+[33mThe enemies strike back ![0m
+Shelob inflict 2 damages to Aragorn
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-0) | Elrond(5-3-8) ]
+Enemies   -> [ Shelob(5-6) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : giant sword - D=3
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Shelob(5)
+Enter your choice : 
+Aragorn miss his attack using giant sword
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-0) | Elrond(5-3-8) ]
+Enemies   -> [ Shelob(5-6) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+Current weapon : bow - D=2
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Shelob(5)
+Enter your choice : 
+Legolas inflicts 2 damages to Shelob
+
+Press any key to continue...
+[H[2JInventory -> [ sushis | simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-0) | Elrond(5-3-8) ]
+Enemies   -> [ Shelob(5-4) ]
+
+[31mGandalf[0m has to play !
+
+What will Gandalf do : 
+Current spell : fire storm - D=5
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : [33mCareful, Gandalf doesn't have enough mana to use spells[0m
+
+Which item do you want to use : 
+[1] sushis - Power : 3
+[2] simple healing potion - Power : 2
+[3] medium healing potion - Power : 3
+Enter your choice : Cannot add HP, max HP = 4
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-6) | Elrond(5-3-8) ]
+Enemies   -> [ Shelob(5-4) ]
+
+[31mElrond[0m has to play !
+
+What will Elrond do : 
+Current spell : healing touch - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your spell : 
+[1] Holy ray -> Damage = 2, Mana cost = 2
+[2] Healing touch -> Heal = 2, Mana cost = 2
+Enter your choice : 
+Choose your target : 
+[1] Shelob(5)
+Enter your choice : 
+Elrond inflicts 2 damages to Shelob
+
+Press any key to continue...
+[33mThe enemies strike back ![0m
+Shelob inflict 2 damages to Aragorn
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-6) | Elrond(5-3-6) ]
+Enemies   -> [ Shelob(5-2) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : giant sword - D=3
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Shelob(5)
+Enter your choice : 
+Aragorn inflicts 3 damages to Shelob
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-6) | Elrond(5-3-6) ]
+Enemies   -> [ Shelob(4-0) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+Current weapon : bow - D=2
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Shelob(4)
+Enter your choice : 
+Legolas inflicts 2 damages to Shelob
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-6) | Elrond(5-3-6) ]
+Enemies   -> [ Shelob(2-0) ]
+
+[31mGandalf[0m has to play !
+
+What will Gandalf do : 
+Current spell : fire storm - D=5
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your spell : 
+[1] Ice pick -> Damage = 2, Mana cost = 1
+[2] Lightning -> Damage = 3, Mana cost = 3
+[3] Fire storm -> Damage = 5, Mana cost = 5
+Enter your choice : 
+Choose your target : 
+[1] Shelob(2)
+Enter your choice : 
+Gandalf inflicts 2 damages to Shelob
+[31mShelob is dead[0m
+[33mAll the enemies are dead, the final boss is waiting...[0m
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Gandalf(4-3-5) | Elrond(5-3-6) ]
+Final Boss-> [ Sachiel(10-10) ]
+
+[31mElrond[0m has to play !
+
+What will Elrond do : 
+Current spell : holy ray - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your spell : 
+[1] Holy ray -> Damage = 2, Mana cost = 2
+[2] Healing touch -> Heal = 2, Mana cost = 2
+Enter your choice : 
+Choose your target : 
+[1] Aragorn(4)
+[2] Legolas(4)
+[3] Gandalf(4)
+[4] Elrond(5)
+Enter your choice : 
+Elrond restore 2 HP of Gandalf
+Gandalf is completly healed
+
+Press any key to continue...
+[33mThe boss strikes back ![0m
+Sachiel inflict 3 damages to Gandalf
+Sachiel inflict 4 damages to Gandalf
+[31mGandalf is dead[0m
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Elrond(5-3-3) ]
+Final Boss-> [ Sachiel(10-10) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : giant sword - D=3
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(10)
+Enter your choice : 
+Aragorn inflicts 3 damages to Sachiel
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Elrond(5-3-3) ]
+Final Boss-> [ Sachiel(10-7) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+Current weapon : bow - D=2
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(10)
+Enter your choice : 
+Legolas inflicts 2 damages to Sachiel
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Elrond(5-3-3) ]
+Final Boss-> [ Sachiel(10-5) ]
+
+[31mElrond[0m has to play !
+
+What will Elrond do : 
+Current spell : healing touch - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your spell : 
+[1] Holy ray -> Damage = 2, Mana cost = 2
+[2] Healing touch -> Heal = 2, Mana cost = 2
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(10)
+Enter your choice : 
+Elrond inflicts 2 damages to Sachiel
+
+Press any key to continue...
+[33mThe boss strikes back ![0m
+Sachiel inflict 2 damages to Legolas
+Sachiel inflict 2 damages to Elrond
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Elrond(5-3-1) ]
+Final Boss-> [ Sachiel(10-3) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : giant sword - D=3
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(10)
+Enter your choice : 
+Aragorn inflicts 3 damages to Sachiel
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Elrond(5-3-1) ]
+Final Boss-> [ Sachiel(10-0) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+Current weapon : bow - D=2
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(10)
+Enter your choice : 
+Legolas inflicts 2 damages to Sachiel
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion | medium healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Elrond(5-3-1) ]
+Final Boss-> [ Sachiel(8-0) ]
+
+[31mElrond[0m has to play !
+
+What will Elrond do : 
+Current spell : holy ray - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : [33mCareful, Elrond doesn't have enough mana to use spells[0m
+[33mPlease select a spell first to attack[0m
+Enter your choice : [33mCareful, Elrond doesn't have enough mana to use spells[0m
+
+Which item do you want to use : 
+[1] simple healing potion - Power : 2
+[2] medium healing potion - Power : 3
+Enter your choice : 
+Press any key to continue...
+[33mThe boss strikes back ![0m
+Sachiel inflict 4 damages to Elrond
+Sachiel inflict 4 damages to Aragorn
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(4-3-0) | Legolas(4-4-0) | Elrond(7-2-7) ]
+Final Boss-> [ Sachiel(8-0) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : giant sword - D=3
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(8)
+Enter your choice : 
+Aragorn miss his attack using giant sword
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(4-3-0) | Legolas(4-4-0) | Elrond(7-2-7) ]
+Final Boss-> [ Sachiel(8-0) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+Current weapon : bow - D=2
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(8)
+Enter your choice : 
+Legolas inflicts 2 damages to Sachiel
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(4-3-0) | Legolas(4-4-0) | Elrond(7-2-7) ]
+Final Boss-> [ Sachiel(6-0) ]
+
+[31mElrond[0m has to play !
+
+What will Elrond do : 
+Current spell : holy ray - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(6)
+Enter your choice : 
+Elrond inflicts 2 damages to Sachiel
+
+Press any key to continue...
+[33mThe boss strikes back ![0m
+Sachiel inflict 2 damages to Elrond
+Sachiel inflict 2 damages to Elrond
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Elrond(5-2-5) ]
+Final Boss-> [ Sachiel(4-0) ]
+
+[31mAragorn[0m has to play !
+
+What will Aragorn do : 
+Current weapon : giant sword - D=3
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(4)
+Enter your choice : 
+Aragorn miss his attack using giant sword
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Elrond(5-2-5) ]
+Final Boss-> [ Sachiel(4-0) ]
+
+[31mLegolas[0m has to play !
+
+What will Legolas do : 
+Current weapon : bow - D=2
+[1] Attack
+[2] Choose a weapon
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(4)
+Enter your choice : 
+Legolas inflicts 2 damages to Sachiel
+
+Press any key to continue...
+[H[2JInventory -> [ simple healing potion ]
+Heros     -> [ Aragorn(4-5-0) | Legolas(4-4-0) | Elrond(5-2-5) ]
+Final Boss-> [ Sachiel(2-0) ]
+
+[31mElrond[0m has to play !
+
+What will Elrond do : 
+Current spell : holy ray - D=2
+[1] Attack
+[2] Use a spell
+[3] Use consumables
+[4] Pass this tour
+Enter your choice : 
+Choose your target : 
+[1] Sachiel(2)
+Enter your choice : 
+Elrond inflicts 2 damages to Sachiel
+[31mSachiel is dead[0m
+
+Congratulations, you've won !
+
+
+Press any key to continue...
+
+
+[31m/!\ Interrupt detected /!\
+[0m

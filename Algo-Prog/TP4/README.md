@@ -2,7 +2,9 @@
 
 ```
 todo : 
-
+    error when no more mana:
+    Careful, Elrond doesn't have enough mana to use spells
+    Please select a spell first to attack
 UML modified :
     Hero and every child of Hero are in the com.isep.rpg.hero
     Item and every child of Item are in the com.isep.rpg.item

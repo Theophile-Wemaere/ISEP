@@ -108,7 +108,7 @@ public class ConsoleParser implements InputParser
         {
             System.out.print("Enter your choice : ");
             choice = scanner.nextInt();
-            if(hero instanceof SpellCaster && choice == 1 && choice == 2)
+            if(hero instanceof SpellCaster)
             {
                 if(hero instanceof Mage)
                 {
@@ -144,6 +144,11 @@ public class ConsoleParser implements InputParser
                 if((choice == 2 && minMana) || (choice == 3 && size != 0) || choice == 4 )
                 {
                     c = true;
+                }
+
+                if(choice == 3 && size == 0)
+                {
+                    System.out.println("\u001B[33m" + "No items left in your inventory" + "\u001B[0m");
                 }
             }
             else
@@ -181,6 +186,11 @@ public class ConsoleParser implements InputParser
                     if(choice == 2 || (choice == 3 && size != 0) || choice == 4)
                     {
                         c = true;
+                    }
+
+                    if(choice == 3 && size == 0)
+                    {
+                        System.out.println("\u001B[33m" + "No items left in your inventory" + "\u001B[0m");
                     }
                 }
             }
