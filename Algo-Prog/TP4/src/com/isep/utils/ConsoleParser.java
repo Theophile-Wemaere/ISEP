@@ -108,7 +108,7 @@ public class ConsoleParser implements InputParser
         {
             System.out.print("Enter your choice : ");
             choice = scanner.nextInt();
-            if(hero instanceof SpellCaster)
+            if(hero instanceof SpellCaster && choice == 1 && choice == 2)
             {
                 if(hero instanceof Mage)
                 {
@@ -118,7 +118,7 @@ public class ConsoleParser implements InputParser
                     }
                     else
                     {
-                        System.out.println("\u001B[33m" + "Carefull, " + hero.getName() + " doesn't have enough mana to use spells" + "\u001B[0m");
+                        System.out.println("\u001B[33m" + "Careful, " + hero.getName() + " doesn't have enough mana to use spells" + "\u001B[0m");
                     }
                 }
                 else if(hero instanceof Healer)
@@ -129,7 +129,7 @@ public class ConsoleParser implements InputParser
                     }
                     else
                     {
-                        System.out.println("\u001B[33m" + "Carefull, " + hero.getName() + " doesn't have enough mana to use spells" + "\u001B[0m");
+                        System.out.println("\u001B[33m" + "Careful, " + hero.getName() + " doesn't have enough mana to use spells" + "\u001B[0m");
                     }
                 }
                 if((choice == 1 && ((SpellCaster) hero).getSpellName() != null) && minMana)
@@ -163,6 +163,10 @@ public class ConsoleParser implements InputParser
                     {
                         c = true;
                     }
+                    else if(choice == 3 && size == 0)
+                    {
+                        System.out.println("\u001B[33m" + "You don't have any items left in  your inventory"+ "\u001B[0m");
+                    }
                 }
                 else if(hero instanceof Hunter)
                 {
@@ -174,7 +178,6 @@ public class ConsoleParser implements InputParser
                     {
                         System.out.println("\u001B[33m" + "Please select a weapon first to attack" + "\u001B[0m");
                     }
-                    
                     if(choice == 2 || (choice == 3 && size != 0) || choice == 4)
                     {
                         c = true;

@@ -19,7 +19,7 @@ public class Game
     private ArrayList<String> BossNames = new ArrayList<>();
 
     private int number; // number of heros
-    private boolean playing = true, doBoss = true;
+    private boolean playing = true, doBoss = false;
 
     // private Enemy boss;
 
