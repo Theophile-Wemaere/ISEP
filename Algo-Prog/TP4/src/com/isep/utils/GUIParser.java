@@ -5,31 +5,44 @@ import java.util.ArrayList;
 import com.isep.rpg.*;
 import com.isep.rpg.hero.*;
 import com.isep.rpg.item.*;
+import com.isep.utils.scenecontrollers.*;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Scanner;
+import javafx.scene.text.Font;
+import java.net.URL;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class GUIParser extends Application implements InputParser
 {
+
+    private Label title1;
+
     @Override
     public void start(Stage stage) throws IOException
     {
-        // Load the FXML file using the FXMLLoader
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("data//welcomeMenu.fxml"));
+        // -_-_-_-_-_-_-_-_-_- load the fxml scene -_-_-_-_-_-_-_-_-_-
+        // Get the class object for the current class
+        Class clazz = getClass();
 
-        // method to use absolute path
-        String path = new File("data/scenes/welcomeMenu.fxml").getAbsolutePath();
+        // Get the URL of the FXML file relative to the root of the classpath
+        String fxmlPath = "/data/scenes/welcomeMenu.fxml";
+        URL url = clazz.getResource(fxmlPath);
+
+        //String path = new File("/data/scenes/welcomeMenu.fxml").getAbsolutePath();
         // Load the FXML file using the FXMLLoader and the absolute path to the file
-        FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
-        Scene scene = new Scene(loader.load());
-        // Set the scene on the stage
+        //FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+
         stage.setScene(scene);
         stage.show();
     }
@@ -37,22 +50,6 @@ public class GUIParser extends Application implements InputParser
     public void launchInterface()
     {
         launch();
-    }
-
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    protected void onBeginButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-    @FXML
-    protected void onOptionButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
-    @FXML
-    protected void onQuitButtonClick() {
-        System.exit(0);
     }
 
     public int getHeroNum()

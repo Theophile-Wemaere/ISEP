@@ -2,6 +2,7 @@
 
 ```
 todo : 
+    handle no int input
     add mana regen
     add consumables after each kill
     error when no more mana:
