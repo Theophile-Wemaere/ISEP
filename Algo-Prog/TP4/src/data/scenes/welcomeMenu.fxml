@@ -44,5 +44,10 @@
             <Font name="Meslo LG S Regular Nerd Font Complete" size="13.0" />
          </font>
       </Label>
+      <Button fx:id="sound" layoutX="912.0" mnemonicParsing="false" onAction="#onSoundButton" style="-fx-background-color: #00000000;" text="">
+         <font>
+            <Font name="Meslo LG S Regular Nerd Font Complete" size="20.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

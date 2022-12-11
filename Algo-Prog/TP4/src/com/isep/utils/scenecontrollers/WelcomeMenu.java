@@ -1,14 +1,15 @@
 package com.isep.utils.scenecontrollers;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -22,8 +23,10 @@ public class WelcomeMenu
     @FXML
     private Label title1, title2, corner1, corner2;
     @FXML
-    private Button begin, quit;
+    private Button begin, quit, sound;
     private Clip clip = AudioSystem.getClip();
+
+    private boolean beginning = false;
 
     public WelcomeMenu() throws LineUnavailableException {
     }
@@ -46,22 +49,43 @@ public class WelcomeMenu
         corner2.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 13));
         begin.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 16));
         quit.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 16));
+        sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
 
-        Class clazz = getClass();
-        String audioPath = "/data/musics/welcomeAudio.wav";
-        this.clip.open(AudioSystem.getAudioInputStream(clazz.getResource(audioPath)));
-        this.clip.loop(Clip.LOOP_CONTINUOUSLY);
+        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/welcomeAudio.wav")));
+        if(StageLoader.sound)
+            this.clip.loop(Clip.LOOP_CONTINUOUSLY);
+        else
+            sound.setText("\uF026");
     }
 
     @FXML
-    protected void onBeginButtonClick()
+    protected void onBeginButtonClick() throws IOException
     {
-        System.out.println("beginning");
+        if(StageLoader.sound)
+            this.clip.stop();
+        StageLoader.loadFXMLScene("/data/scenes/heroMenu.fxml");
     }
 
     @FXML
     protected void onQuitButtonClick() {
         System.exit(0);
-        this.clip.stop();
+        if(StageLoader.sound)
+            this.clip.stop();
+    }
+
+    @FXML
+    protected void onSoundButton(){
+        if(StageLoader.sound)
+        {
+            StageLoader.sound = false;
+            sound.setText("\uF026");
+            this.clip.stop();
+        }
+        else
+        {
+            StageLoader.sound = true;
+            sound.setText("\uF028");
+            this.clip.loop(Clip.LOOP_CONTINUOUSLY);
+        }
     }
 }

@@ -1,6 +1,5 @@
 package com.isep.utils;
 
-import java.io.File;
 import java.util.ArrayList;
 import com.isep.rpg.*;
 import com.isep.rpg.hero.*;
@@ -8,44 +7,20 @@ import com.isep.rpg.item.*;
 import com.isep.utils.scenecontrollers.*;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Scanner;
-import javafx.scene.text.Font;
-import java.net.URL;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javax.sound.sampled.LineUnavailableException;
 
 public class GUIParser extends Application implements InputParser
 {
-
-    private Label title1;
-
     @Override
     public void start(Stage stage) throws IOException
     {
         // -_-_-_-_-_-_-_-_-_- load the fxml scene -_-_-_-_-_-_-_-_-_-
-        // Get the class object for the current class
-        Class clazz = getClass();
-
-        // Get the URL of the FXML file relative to the root of the classpath
-        String fxmlPath = "/data/scenes/welcomeMenu.fxml";
-        URL url = clazz.getResource(fxmlPath);
-
-        //String path = new File("/data/scenes/welcomeMenu.fxml").getAbsolutePath();
-        // Load the FXML file using the FXMLLoader and the absolute path to the file
-        //FXMLLoader loader = new FXMLLoader(new File(path).toURI().toURL());
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
+        StageLoader.setStage(stage);
+        StageLoader.loadFXMLScene("/data/scenes/welcomeMenu.fxml");
     }
 
     public void launchInterface()
@@ -53,22 +28,28 @@ public class GUIParser extends Application implements InputParser
         launch();
     }
 
+    @Override
     public int getHeroNum()
     {
-        Scanner scanner = new Scanner(System.in);
-        boolean c;
-        int choice = 0;
-        c = false;
-        while(!c)
-        {
-            System.out.print("\nHow many heros (max 4) : ");
-            choice = scanner.nextInt();
-            if(choice > 0 && choice <= 4)
+        System.out.println("getting hero number");
+        try {
+            double choice = 1;
+            boolean choosing = true;
+            while(choosing)
             {
-                c = true;
+                HeroMenu menu = new HeroMenu();
+                choice = menu.slider.getValue();
+                System.out.println(choice);
+                if(choice == 5)
+                    choosing = false;
             }
+            return (int) choice;
+
+        } catch (LineUnavailableException e) {
+                // do nothing
         }
-        return choice;
+
+        return -1;
     }
 
     public Hero getHeroClasse()
