@@ -2,6 +2,7 @@ package com.isep.rpg;
 
 import com.isep.rpg.item.*;
 import com.isep.rpg.hero.*;
+import com.isep.utils.GUIParser;
 import com.isep.utils.InputParser;
 
 import java.util.ArrayList;
@@ -27,6 +28,10 @@ public class Game
 
     public Game(InputParser parser) // n = number of heros (default 3)
     {
+        if(parser instanceof GUIParser)
+        {
+            ((GUIParser) parser).launchInterface();
+        }
         clearConsole();
         this.parser = parser;
         this.number = this.parser.getHeroNum();

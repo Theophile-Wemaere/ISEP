@@ -17,7 +17,6 @@ public class Main
         
         // InputParser parser = new ConsoleParser();
         InputParser parser = new GUIParser();
-        ((GUIParser) parser).launchInterface();
         Game game = new Game(parser);
         game.start();
     }
