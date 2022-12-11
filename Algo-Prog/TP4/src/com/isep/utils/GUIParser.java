@@ -15,10 +15,13 @@ import javax.sound.sampled.LineUnavailableException;
 
 public class GUIParser extends Application implements InputParser
 {
+    private Stage stage;
+    private int heroNumber = 1;
     @Override
     public void start(Stage stage) throws IOException
     {
         // -_-_-_-_-_-_-_-_-_- load the fxml scene -_-_-_-_-_-_-_-_-_-
+        this.stage = stage;
         StageLoader.setStage(stage);
         StageLoader.loadFXMLScene("/data/scenes/welcomeMenu.fxml");
     }
@@ -31,67 +34,34 @@ public class GUIParser extends Application implements InputParser
     @Override
     public int getHeroNum()
     {
-        System.out.println("getting hero number");
-        try {
-            double choice = 1;
-            boolean choosing = true;
-            while(choosing)
-            {
-                HeroMenu menu = new HeroMenu();
-                choice = menu.slider.getValue();
-                System.out.println(choice);
-                if(choice == 5)
-                    choosing = false;
-            }
-            return (int) choice;
-
-        } catch (LineUnavailableException e) {
-                // do nothing
+        boolean end = false;
+        while(!end)
+        {
+            sleep(500);
+            end = StageLoader.choiceEnd;
         }
-
-        return -1;
+        return StageLoader.herosNumber;
     }
 
     public Hero getHeroClasse()
     {
-        Scanner scanner = new Scanner(System.in);
-        boolean c;
-        int choice = 0;
-        // System.out.print("Enter your hero name : ");
-        // String name = scanner.nextLine();
-        System.out.println("\nChoose your hero classe : ");
-        System.out.println("[1] Warrior : powerfull and solid (HP:4|Defense:5|MaxDamage:3)");
-        System.out.println("[2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)");
-        System.out.println("[3] Mage : master of the arcane arts (HP:4|Defense:3|MaxDamage:5|Mana:7)");
-        System.out.println("[4] Healer : the best companion for any fighter (HP:4|Defense:3|MaxDamage:2|Mana:8|Possibility of healing other heros)");
-        c = false;
-        while(!c)
-        {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
-            if(choice >= 1 && choice <= 4)
-            {
-                c = true;
-            }
-        }
-        switch(choice)
+        System.out.println("here also");
+        switch(this.heroNumber)
         {
             case 1:
-                Warrior warrior = new Warrior("Aragorn");
-                return warrior;
-
+                this.heroNumber = 2;
+                return StageLoader.hero1;
             case 2:
-                Hunter hunter = new Hunter("Legolas");
-                return hunter;
-
+                this.heroNumber = 3;
+                return StageLoader.hero2;
             case 3:
-                Mage mage = new Mage("Gandalf");
-                return mage;
-
+                this.heroNumber = 4;
+                return StageLoader.hero3;
             case 4:
-                Healer healer = new Healer("Elrond");
-                return healer;
+                this.heroNumber = 5;
+                return StageLoader.hero4;
         }
+
         return null;
     }
 
@@ -356,6 +326,15 @@ public class GUIParser extends Application implements InputParser
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nPress any key to continue...\n");
         scanner.nextLine();
+    }
+
+    private void sleep(int n)
+    {
+        try {
+            Thread.sleep(n);
+        } catch (InterruptedException e) {
+            // Handle the exception
+        }
     }
 
 }

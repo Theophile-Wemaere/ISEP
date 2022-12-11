@@ -1,11 +1,9 @@
 package com.isep.utils.scenecontrollers;
 
+import com.isep.rpg.hero.*;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.event.*;
@@ -16,6 +14,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import javafx.collections.ObservableList;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 
 import javax.sound.sampled.AudioSystem;
@@ -34,9 +35,12 @@ public class HeroMenu
     @FXML
     private Button fightButton,sound;
     @FXML
-    public Slider slider;
+    private Slider slider;
     @FXML
-    public ChoiceBox choice1,choice2,choice3,choice4;
+    private ChoiceBox choice1,choice2,choice3,choice4;
+
+    @FXML
+    private TextField field1,field2,field3,field4;
 
     private Clip clip = AudioSystem.getClip();
 
@@ -77,7 +81,6 @@ public class HeroMenu
         // -_-_-_-_-_-_-_-_-_- load fonts -_-_-_-_-_-_-_-_-_-
 
         Font font = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 24);
-        slider.setStyle("-fx-font-family: '" + font.getFamily() + "'");
 
         title.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 50));
 
@@ -136,13 +139,25 @@ public class HeroMenu
     }
 
     @FXML
-    protected void onFightButtonClick()
+    protected void onFightButtonClick() throws IOException
     {
-        System.out.println("beginning");
+        String name;
         if(StageLoader.sound)
         {
             this.clip.stop();
         }
+        int number = (int) slider.getValue();
+        StageLoader.herosNumber = number;
+        if(number >= 1)
+            StageLoader.hero1 = setHero(choice1,field1);
+        if(number >= 2)
+            StageLoader.hero2 = setHero(choice2,field2);
+        if(number >= 2)
+            StageLoader.hero3 = setHero(choice3,field3);
+        if(number >= 4)
+            StageLoader.hero4 = setHero(choice4,field4);
+
+        StageLoader.choiceEnd = true;
     }
 
     @FXML
@@ -160,5 +175,41 @@ public class HeroMenu
             sound.setText("\uF028");
             this.clip.loop(Clip.LOOP_CONTINUOUSLY);
         }
+    }
+
+    public Hero setHero(ChoiceBox choice, TextField textField)
+    {
+        String name;
+        switch((String) choice.getValue())
+        {
+            case "Warrior":
+                name = textField.getText();
+                if(name.equals(""))
+                    name = "Aragorn";
+                Warrior warrior = new Warrior(name);
+                return warrior;
+
+            case "Hunter":
+                name = textField.getText();
+                if(name.equals(""))
+                    name = "Legolas";
+                Hunter hunter = new Hunter(name);
+                return hunter;
+
+            case "Mage":
+                name = textField.getText();
+                if(name.equals(""))
+                    name = "Gandalf";
+                Mage mage = new Mage(name);
+                return mage;
+
+            case "Healer":
+                name = textField.getText();
+                if(name.equals(""))
+                    name = "Elrond";
+                Healer healer = new Healer(name);
+                return healer;
+        }
+        return null;
     }
 }

@@ -30,8 +30,11 @@ public class Game
     {
         if(parser instanceof GUIParser)
         {
-            ((GUIParser) parser).launchInterface();
-            //while()
+            (new Thread(){
+                public void run(){
+                    ((GUIParser) parser).launchInterface();
+                }
+            }).start();
         }
         clearConsole();
         this.parser = parser;

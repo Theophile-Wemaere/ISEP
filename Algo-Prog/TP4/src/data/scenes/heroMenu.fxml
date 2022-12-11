@@ -29,7 +29,7 @@
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Aragorn" />
+            <TextField fx:id="field1" layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Aragorn" />
             <Label fx:id="class1" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="100.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
@@ -47,7 +47,7 @@
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Legolas" />
+            <TextField fx:id="field2" layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Legolas" />
             <Label fx:id="class2" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="100.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
@@ -65,7 +65,7 @@
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Gandalf" />
+            <TextField fx:id="field3" layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Gandalf" />
             <Label fx:id="class3" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="100.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
@@ -83,7 +83,7 @@
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Elrond" />
+            <TextField fx:id="field4" layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Elrond" />
             <Label fx:id="class4" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="100.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
