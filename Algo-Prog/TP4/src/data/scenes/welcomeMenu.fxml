@@ -5,17 +5,40 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="540" prefWidth="960" style="-fx-background-image: url(file:src/data/imgs/bg-1.jpg); -fx-background-repeat: no-repeat; -fx-background-size: cover; -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.utils.scenecontrollers.WelcomeMenu">
+<AnchorPane prefHeight="540" prefWidth="960" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.utils.scenecontrollers.WelcomeMenu">
     <children>
-      <ImageView fitHeight="540" fitWidth="960" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="540.0" fitWidth="960" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/data/imgs/bg-1.jpg" />
+            <Image url="@../imgs/bg-1.jpg" />
          </image>
       </ImageView>
-        <Label fx:id="title1" alignment="CENTER" layoutX="419.0" layoutY="120.0" text="MINI RPG LITE 3000" textAlignment="CENTER" />
-        <Label fx:id="title2" alignment="CENTER" layoutX="385.0" layoutY="180.0" text="the return of the fallens angels" textAlignment="CENTER" />
-        <Button fx:id="begin" alignment="CENTER" layoutX="436.0" layoutY="257.0" onAction="#onBeginButtonClick" text="New Game" />
-        <Button fx:id="quit" alignment="CENTER" layoutX="435.0" layoutY="335.0" onAction="#onQuitButtonClick" prefHeight="28.0" prefWidth="87.0" text="Quit" />
+        <Label fx:id="title1" alignment="CENTER" layoutX="264.0" layoutY="52.0" prefHeight="55.0" prefWidth="429.0" text="MINI RPG LITE 3000" textAlignment="CENTER">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="48.0" />
+         </font></Label>
+        <Label fx:id="title2" alignment="CENTER" layoutX="284.0" layoutY="133.0" text="the return of the fallens angels" textAlignment="CENTER">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="32.0" />
+         </font></Label>
+        <Button fx:id="begin" alignment="CENTER" layoutX="381.0" layoutY="233.0" onAction="#onBeginButtonClick" prefHeight="45.0" prefWidth="195.0" text="New Game">
+         <font>
+            <Font name="Meslo LG S Regular Nerd Font Complete" size="16.0" />
+         </font></Button>
+        <Button fx:id="quit" alignment="CENTER" layoutX="381.0" layoutY="321.0" onAction="#onQuitButtonClick" prefHeight="46.0" prefWidth="195.0" text="Quit">
+         <font>
+            <Font name="Meslo LG S Regular Nerd Font Complete" size="16.0" />
+         </font></Button>
+      <Label fx:id="corner1" layoutX="755.0" layoutY="517.0" text="by Theophile-Wemaere on " textFill="WHITE">
+         <font>
+            <Font name="Meslo LG S Regular Nerd Font Complete" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="corner2" layoutX="8.0" layoutY="516.0" prefHeight="19.0" prefWidth="73.0" text="ISEP 2022" textFill="WHITE">
+         <font>
+            <Font name="Meslo LG S Regular Nerd Font Complete" size="13.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
