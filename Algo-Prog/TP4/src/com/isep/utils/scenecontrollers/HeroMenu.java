@@ -1,9 +1,13 @@
 package com.isep.utils.scenecontrollers;
 
 import com.isep.rpg.hero.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.event.*;
@@ -41,6 +45,8 @@ public class HeroMenu
 
     @FXML
     private TextField field1,field2,field3,field4;
+    @FXML
+    private ImageView image1,image2,image3,image4;
 
     private Clip clip = AudioSystem.getClip();
 
@@ -78,6 +84,35 @@ public class HeroMenu
         choice3.setValue("Mage");
         choice4.setValue("Healer");
 
+        choice1.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                // Handle the change in the selected item here
+                changeImage(image1,newValue);
+            }
+        });
+        choice2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                // Handle the change in the selected item here
+                changeImage(image2,newValue);
+            }
+        });
+        choice3.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                // Handle the change in the selected item here
+                changeImage(image3,newValue);
+            }
+        });
+        choice4.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                // Handle the change in the selected item here
+                changeImage(image4,newValue);
+            }
+        });
+
         // -_-_-_-_-_-_-_-_-_- load fonts -_-_-_-_-_-_-_-_-_-
 
         Font font = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 24);
@@ -99,6 +134,7 @@ public class HeroMenu
         box4.setVisible(false);
 
         fightButton.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 21));
+        sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
 
         this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/heroMenu.wav")));
         if(StageLoader.sound)
@@ -158,6 +194,7 @@ public class HeroMenu
             StageLoader.hero4 = setHero(choice4,field4);
 
         StageLoader.choiceEnd = true;
+        StageLoader.loadFXMLScene("/data/scenes/fightMenu.fxml");
     }
 
     @FXML
@@ -211,5 +248,25 @@ public class HeroMenu
                 return healer;
         }
         return null;
+    }
+
+
+    public void changeImage(ImageView image, String choice)
+    {
+        switch(choice)
+        {
+            case "Warrior":
+                image.setImage(new Image("/data/imgs/warrior.png"));
+                break;
+            case "Hunter":
+                image.setImage(new Image("/data/imgs/hunter.png"));
+                break;
+            case "Mage":
+                image.setImage(new Image("/data/imgs/mage.png"));
+                break;
+            case "Healer":
+                image.setImage(new Image("/data/imgs/healer.png"));
+                break;
+        }
     }
 }

@@ -31,7 +31,6 @@ public class GUIParser extends Application implements InputParser
         launch();
     }
 
-    @Override
     public int getHeroNum()
     {
         boolean end = false;

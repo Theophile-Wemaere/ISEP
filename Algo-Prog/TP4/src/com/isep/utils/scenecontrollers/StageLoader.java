@@ -3,6 +3,8 @@ package com.isep.utils.scenecontrollers;
 
 import com.isep.rpg.hero.Hero;
 import com.isep.utils.GUIParser;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +12,7 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class StageLoader
 {
@@ -32,9 +35,17 @@ public class StageLoader
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                // End the JavaFX thread when the window is closed
+                Platform.exit();
+                System.exit(0);
+            }
+        });
     }
 
-    public static boolean sound = false;
+    public static boolean sound = true;
     public static boolean choiceEnd = false;
     public static int herosNumber = 4;
     public static Hero hero1;

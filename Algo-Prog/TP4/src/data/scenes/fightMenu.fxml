@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<!-- Font loaded here are taken directly inside the system font librairy, but it doesn't matter because they are loaded directly from
+ ttf file in the controller. it's just to have a good visualisation of the scene inside sceneBuilder -->
+
+<?import javafx.scene.control.Button?>
+<AnchorPane prefHeight="540" prefWidth="960" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.utils.scenecontrollers.FightMenu">
+   <children>
+      <ImageView fitHeight="541.0" fitWidth="971.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/bg-2.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="96.0" layoutY="260.0" prefHeight="200.0" prefWidth="129.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="1.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="173.0" style="-fx-background-color: black;" text="Hero 1" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="23.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="173.0" fitWidth="184.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/mage.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+
+      <Button fx:id="sound" layoutX="912.0" mnemonicParsing="false" onAction="#onSoundButton" style="-fx-background-color: #00000000;" text="">
+         <font>
+            <Font name="Meslo LG S Regular Nerd Font Complete" size="20.0" />
+         </font>
+      </Button>
+   </children>
+
+</AnchorPane>
