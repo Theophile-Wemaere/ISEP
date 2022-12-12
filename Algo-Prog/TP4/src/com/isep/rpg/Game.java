@@ -2,8 +2,10 @@ package com.isep.rpg;
 
 import com.isep.rpg.item.*;
 import com.isep.rpg.hero.*;
+import com.isep.utils.ConsoleParser;
 import com.isep.utils.GUIParser;
 import com.isep.utils.InputParser;
+import com.isep.utils.scenecontrollers.StageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +58,7 @@ public class Game
             int d = random.nextInt(7 - 5 + 1) + 5; // generate number in [5;7], random defense value
             int max = this.EnemiesNames.size() - 1;
             int n = random.nextInt(max - 0 + 1) + 0; // generate number in [0;max], random name
-            Enemy enemy = new Enemy(this.EnemiesNames.get(n),5,d);
+            Enemy enemy = new Enemy(this.EnemiesNames.get(n),5+d);
             this.enemies.add(enemy);
             this.EnemiesNames.remove(n);
         }
@@ -65,8 +67,13 @@ public class Game
         Random random = new Random();
         int max = this.BossNames.size() - 1;
         int n = random.nextInt(max - 0 + 1) + 0; // generate number in [0;max], random name
-        Enemy boss = new Enemy(this.BossNames.get(n),10, 10);
+        Enemy boss = new Enemy(this.BossNames.get(n),20);
         this.boss.add(boss);
+
+        StageLoader.enemies = (ArrayList<Combatant>) this.enemies.clone();
+        StageLoader.boss = (ArrayList<Combatant>) this.boss.clone();
+        StageLoader.heros = (ArrayList<Combatant>) this.heros.clone();
+        StageLoader.consumables = (ArrayList<Consumable>) this.consumables.clone();
     }
 
     public void start()
@@ -101,18 +108,24 @@ public class Game
         {
             Hero current = (Hero) heros.get(i);
             clearConsole();
-            printInventory();
-            printHeros();
+            if(this.parser instanceof ConsoleParser)
+            {
+                printInventory();
+                printHeros();
+            }
             if(!this.doBoss)
             {
-                printEnemies();
+                if(this.parser instanceof ConsoleParser)
+                    printEnemies();
                 currentEnemy = (ArrayList<Combatant>) this.enemies.clone();
             }
             else
             {
-                printBoss();
+                if(this.parser instanceof ConsoleParser)
+                    printBoss();
                 currentEnemy = (ArrayList<Combatant>) this.boss.clone();
             }
+
             System.out.println("\u001B[31m" + current.getName() + "\u001B[0m" + " has to play !\n");
 
             int choice = this.parser.getAction(current,this.consumables.size());
@@ -307,7 +320,7 @@ public class Game
                 System.out.print(" |");
             }
             Combatant current = enemies.get(i);
-            System.out.print(" " + current.getName() + "(" + Integer.toString(current.getHP()) + "-" + Integer.toString(current.getDefense()) + ")");
+            System.out.print(" " + current.getName() + "(" + Integer.toString(current.getHP()) + ")");
         }
         System.out.println(" ]\n");
     }
@@ -315,7 +328,7 @@ public class Game
     private void printBoss()
     {
         System.out.print("Final Boss-> [");
-        System.out.print(" " + this.boss.get(0).getName() + "(" + Integer.toString(this.boss.get(0).getHP()) + "-" + Integer.toString(this.boss.get(0).getDefense()) + ")");
+        System.out.print(" " + this.boss.get(0).getName() + "(" + Integer.toString(this.boss.get(0).getHP()) + ")");
         System.out.println(" ]\n");
     }
 

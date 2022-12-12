@@ -1,7 +1,9 @@
 package com.isep.utils.scenecontrollers;
 
 
+import com.isep.rpg.Combatant;
 import com.isep.rpg.hero.Hero;
+import com.isep.rpg.item.Consumable;
 import com.isep.utils.GUIParser;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -11,6 +13,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -46,11 +50,26 @@ public class StageLoader
         });
     }
 
-    public static boolean sound = true;
+    public static boolean sound = false;
     public static boolean choiceEnd = false;
     public static int herosNumber = 4;
+    public static int action;
     public static Hero hero1;
     public static Hero hero2;
     public static Hero hero3;
     public static Hero hero4;
+    public static ArrayList<Combatant> enemies = new ArrayList<>();
+    public static ArrayList<Combatant> boss = new ArrayList<>();
+    public static ArrayList<Combatant> heros = new ArrayList<>();
+    public static ArrayList<Consumable> consumables = new ArrayList<>();
+    public static String consumable2use;
+
+    public static void sleep(int n)
+    {
+        try {
+            Thread.sleep(n);
+        } catch (InterruptedException e) {
+            // Handle the exception
+        }
+    }
 }

@@ -36,15 +36,15 @@ public class GUIParser extends Application implements InputParser
         boolean end = false;
         while(!end)
         {
-            sleep(500);
+            StageLoader.sleep(500);
             end = StageLoader.choiceEnd;
         }
+        StageLoader.choiceEnd = false;
         return StageLoader.herosNumber;
     }
 
     public Hero getHeroClasse()
     {
-        System.out.println("here also");
         switch(this.heroNumber)
         {
             case 1:
@@ -66,129 +66,13 @@ public class GUIParser extends Application implements InputParser
 
     public int getAction(Hero hero, int size)
     {
-        Scanner scanner = new Scanner(System.in);
-        boolean c, minMana = false;
-        int choice = 0;
-        System.out.println("What will " + hero.getName() + " do : ");
-        if(hero instanceof SpellCaster)
+        boolean end = false;
+        while(!end)
         {
-            if(((SpellCaster) hero).getSpellName() != null )
-                System.out.println("Current spell : " + ((SpellCaster) hero).getSpellName() + " - D=" + Integer.toString(((SpellCaster) hero).getSpellDamage()));
-            else
-                System.out.println("No spell selected");
-            System.out.println("[1] Attack");
-            System.out.println("[2] Use a spell");
+            StageLoader.sleep(500);
+            end = StageLoader.choiceEnd;
         }
-        else
-        {
-            if(hero instanceof Warrior)
-                if(((Warrior) hero).getWeaponName() != null )
-                    System.out.println("Current weapon : " +((Warrior) hero).getWeaponName() + " - D=" + Integer.toString(((Warrior) hero).getDamage()));
-                else
-                    System.out.println("No weapon selected");
-            else if(hero instanceof Hunter)
-                if(((Hunter) hero).getWeaponName() != null )
-                    System.out.println("Current weapon : " +((Hunter) hero).getWeaponName() + " - D=" + Integer.toString(((Hunter) hero).getDamage()));
-                else
-                    System.out.println("No weapon selected");
-            System.out.println("[1] Attack");
-            System.out.println("[2] Choose a weapon");
-        }
-        System.out.println("[3] Use consumables");
-        System.out.println("[4] Pass this tour");
-        c = false;
-
-        while(!c)
-        {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
-            if(hero instanceof SpellCaster)
-            {
-                if(hero instanceof Mage)
-                {
-                    if(hero.getMana() > 0)
-                    {
-                        minMana = true;
-                    }
-                    else
-                    {
-                        System.out.println("\u001B[33m" + "Careful, " + hero.getName() + " doesn't have enough mana to use spells" + "\u001B[0m");
-                    }
-                }
-                else if(hero instanceof Healer)
-                {
-                    if(hero.getMana() > 1)
-                    {
-                        minMana = true;
-                    }
-                    else
-                    {
-                        System.out.println("\u001B[33m" + "Careful, " + hero.getName() + " doesn't have enough mana to use spells" + "\u001B[0m");
-                    }
-                }
-                if((choice == 1 && ((SpellCaster) hero).getSpellName() != null) && minMana)
-                {
-                    c = true;
-                }
-                else if (choice == 1)
-                {
-                    System.out.println("\u001B[33m" + "Please select a spell first to attack" + "\u001B[0m");
-                }
-
-                if((choice == 2 && minMana) || (choice == 3 && size != 0) || choice == 4 )
-                {
-                    c = true;
-                }
-
-                if(choice == 3 && size == 0)
-                {
-                    System.out.println("\u001B[33m" + "No items left in your inventory" + "\u001B[0m");
-                }
-            }
-            else
-            {
-                if(hero instanceof Warrior)
-                {
-                    if((choice == 1 && ((Warrior) hero).getWeaponName() != null))
-                    {
-                        c = true;
-                    }
-                    else if(choice == 1)
-                    {
-                        System.out.println("\u001B[33m" + "Please select a weapon first to attack" + "\u001B[0m");
-                    }
-
-                    if(choice == 2 || (choice == 3 && size != 0) || choice == 4)
-                    {
-                        c = true;
-                    }
-                    else if(choice == 3 && size == 0)
-                    {
-                        System.out.println("\u001B[33m" + "You don't have any items left in  your inventory"+ "\u001B[0m");
-                    }
-                }
-                else if(hero instanceof Hunter)
-                {
-                    if((choice == 1 && ((Hunter) hero).getWeaponName() != null))
-                    {
-                        c = true;
-                    }
-                    else if(choice == 1)
-                    {
-                        System.out.println("\u001B[33m" + "Please select a weapon first to attack" + "\u001B[0m");
-                    }
-                    if(choice == 2 || (choice == 3 && size != 0) || choice == 4)
-                    {
-                        c = true;
-                    }
-
-                    if(choice == 3 && size == 0)
-                    {
-                        System.out.println("\u001B[33m" + "No items left in your inventory" + "\u001B[0m");
-                    }
-                }
-            }
-        }
+        int choice = StageLoader.action;
         return choice;
     }
 
@@ -299,41 +183,23 @@ public class GUIParser extends Application implements InputParser
 
     public int chooseItem(ArrayList<Consumable> consumables)
     {
-        Scanner scanner = new Scanner(System.in);
-        boolean c;
-        int choice = 0;
-        System.out.println("\nWhich item do you want to use : ");
-        for(int i=0;i<consumables.size();i++)
+        String c = StageLoader.consumable2use;
+        int choice;
+        for(int i = 0;i<consumables.size();i++)
         {
-            System.out.println("[" + Integer.toString(i+1) + "]" + " " + consumables.get(i).getName() + " - Power : " + Integer.toString(consumables.get(i).getHealingPoints()));
-        }
-        c = false;
-        while(!c)
-        {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
-            if(choice >= 1 && choice <= consumables.size())
+            Consumable current = consumables.get(i);
+            if(current.getName().equals(c));
             {
-                c = true;
+                System.out.println("Using " + c);
+                choice = i;
+                return choice;
             }
         }
-        return choice-1;
+        return -1;
     }
 
     public void waitKey()
     {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("\nPress any key to continue...\n");
-        scanner.nextLine();
+        StageLoader.choiceEnd = false;
     }
-
-    private void sleep(int n)
-    {
-        try {
-            Thread.sleep(n);
-        } catch (InterruptedException e) {
-            // Handle the exception
-        }
-    }
-
 }

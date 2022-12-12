@@ -35,5 +35,6 @@ holy ray = 2 damage
 
 every enemy has 5 HP and between 5 and 7 defense
 https://www.youtube.com/watch?v=5bn3Jmvep1k&ab_channel=xDeviruchi
+https://www.pinterest.com/pin/893894226012549037/?mt=login
 the boss has 10HP and 10defense
 ```

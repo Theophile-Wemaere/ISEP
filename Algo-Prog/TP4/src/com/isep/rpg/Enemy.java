@@ -4,12 +4,12 @@ import java.util.Random;
 
 public class Enemy extends Combatant
 {
-    private int damage, defense, healthPoint;
+    private int damage, healthPoint;
     private String name;
 
-    public Enemy(String name, int HP, int defense)
+    public Enemy(String name, int HP)
     {
-        super(name,1000, defense, HP); // infinite mana in case I want to implement special thing
+        super(name,1000, 0, HP); // infinite mana in case I want to implement special thing
     }
 
     @Override

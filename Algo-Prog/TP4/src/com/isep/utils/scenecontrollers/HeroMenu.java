@@ -133,7 +133,7 @@ public class HeroMenu
         box3.setVisible(false);
         box4.setVisible(false);
 
-        fightButton.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 21));
+        fightButton.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 20));
         sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
 
         this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/heroMenu.wav")));
@@ -178,10 +178,6 @@ public class HeroMenu
     protected void onFightButtonClick() throws IOException
     {
         String name;
-        if(StageLoader.sound)
-        {
-            this.clip.stop();
-        }
         int number = (int) slider.getValue();
         StageLoader.herosNumber = number;
         if(number >= 1)
@@ -194,6 +190,11 @@ public class HeroMenu
             StageLoader.hero4 = setHero(choice4,field4);
 
         StageLoader.choiceEnd = true;
+        StageLoader.sleep(500);
+        if(StageLoader.sound)
+        {
+            this.clip.stop();
+        }
         StageLoader.loadFXMLScene("/data/scenes/fightMenu.fxml");
     }
 
