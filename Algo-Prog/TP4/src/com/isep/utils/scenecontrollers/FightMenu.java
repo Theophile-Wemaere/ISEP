@@ -128,26 +128,26 @@ public class FightMenu
         boxHero3.setVisible(false);
         boxHero4.setVisible(false);
 
-        setupHero(StageLoader.hero1,imageHero1,nameHero1);
-        updateStatus(statusHero1,StageLoader.hero1);
+        setupHero((Hero) StageLoader.heros.get(0),imageHero1,nameHero1);
+        updateStatus(statusHero1,(Hero) StageLoader.heros.get(0));
 
-        if(StageLoader.hero2 != null)
+        if(StageLoader.heros.size() > 1)
         {
-            setupHero(StageLoader.hero2, imageHero2, nameHero2);
+            setupHero((Hero) StageLoader.heros.get(1), imageHero2, nameHero2);
             boxHero2.setVisible(true);
-            updateStatus(statusHero2,StageLoader.hero2);
+            updateStatus(statusHero2,(Hero) StageLoader.heros.get(1));
         }
-        if(StageLoader.hero3 != null)
+        if(StageLoader.heros.size() > 2)
         {
-            setupHero(StageLoader.hero3,imageHero3,nameHero3);
+            setupHero((Hero) StageLoader.heros.get(2),imageHero3,nameHero3);
             boxHero3.setVisible(true);
-            updateStatus(statusHero3,StageLoader.hero3);
+            updateStatus(statusHero3,(Hero) StageLoader.heros.get(2));
         }
-        if(StageLoader.hero4 != null)
+        if(StageLoader.heros.size() > 3)
         {
-            setupHero(StageLoader.hero4,imageHero4,nameHero4);
+            setupHero((Hero) StageLoader.heros.get(3),imageHero4,nameHero4);
             boxHero4.setVisible(true);
-            updateStatus(statusHero4,StageLoader.hero4);
+            updateStatus(statusHero4,(Hero) StageLoader.heros.get(3));
         }
 
         sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
@@ -158,9 +158,50 @@ public class FightMenu
             sound.setText("\uF026");
 
         updateInventory();
-        updateSpeech("What will " + StageLoader.hero1.getName() + " do ?");
+        updateSpeech("What will " + StageLoader.heros.get(StageLoader.player).getName() + " do ?");
     }
 
+    public void update()
+    {
+        System.out.print("UPDATING...");
+
+        boxHero1.setVisible(false);
+        boxHero2.setVisible(false);
+        boxHero3.setVisible(false);
+        boxHero4.setVisible(false);
+
+        statusHero1.setVisible(false);
+        statusHero2.setVisible(false);
+        statusHero3.setVisible(false);
+        statusHero4.setVisible(false);
+
+        if(StageLoader.heros.size() > 0)
+        {
+            setupHero((Hero) StageLoader.heros.get(0),imageHero1,nameHero1);
+            boxHero1.setVisible(true);
+            updateStatus(statusHero1,(Hero) StageLoader.heros.get(0));
+        }
+        if(StageLoader.heros.size() > 1)
+        {
+            setupHero((Hero) StageLoader.heros.get(1),imageHero2,nameHero2);
+            boxHero2.setVisible(true);
+            updateStatus(statusHero2,(Hero) StageLoader.heros.get(1));
+        }
+        if(StageLoader.heros.size() > 2)
+        {
+            setupHero((Hero) StageLoader.heros.get(2),imageHero3,nameHero3);
+            boxHero3.setVisible(true);
+            updateStatus(statusHero3,(Hero) StageLoader.heros.get(2));
+        }
+        if(StageLoader.heros.size() > 3)
+        {
+            setupHero((Hero) StageLoader.heros.get(3),imageHero4,nameHero4);
+            boxHero4.setVisible(true);
+            updateStatus(statusHero4,(Hero) StageLoader.heros.get(3));
+        }
+        updateInventory();
+        updateSpeech("What will " + StageLoader.heros.get(StageLoader.player).getName() + " do ?");
+    }
 
     @FXML
     protected void onSoundButton()
@@ -226,6 +267,7 @@ public class FightMenu
     private void updateInventory()
     {
         int onigiri=0,sushis=0,ramen=0,lowPot=0,medPot=0,highPot=0;
+        System.out.println(StageLoader.consumables.size());
         for(int i=0;i<StageLoader.consumables.size();i++)
         {
             String current = StageLoader.consumables.get(i).getName();
@@ -259,7 +301,7 @@ public class FightMenu
         }
     }
 
-    private void updateSpeech(String s) throws IOException, InterruptedException
+    private void updateSpeech(String s)
     {
         String t = "";
         for(int i = 0; i<s.length();i++)
@@ -267,7 +309,7 @@ public class FightMenu
             t += s.charAt(i);
             //System.out.println(t);
             labelSpeech.setText(t);
-            Thread.sleep(10);
+            StageLoader.sleep(10);
         }
     }
 
@@ -282,6 +324,7 @@ public class FightMenu
             StageLoader.consumable2use = "onigiri";
             StageLoader.choiceEnd = true;
             StageLoader.sleep(500);
+            update();
         }
     }
     @FXML
@@ -295,6 +338,7 @@ public class FightMenu
             StageLoader.consumable2use = "sushis";
             StageLoader.choiceEnd = true;
             StageLoader.sleep(500);
+            update();
         }
     }
     @FXML
@@ -308,6 +352,7 @@ public class FightMenu
             StageLoader.consumable2use = "ramen";
             StageLoader.choiceEnd = true;
             StageLoader.sleep(500);
+            update();
         }
     }
     @FXML
@@ -321,6 +366,7 @@ public class FightMenu
             StageLoader.consumable2use = "simple healing potion";
             StageLoader.choiceEnd = true;
             StageLoader.sleep(500);
+            update();
         }
     }
     @FXML
@@ -335,6 +381,7 @@ public class FightMenu
             StageLoader.consumable2use = "medium healing potion";
             StageLoader.choiceEnd = true;
             StageLoader.sleep(500);
+            update();
         }
     }
     @FXML
@@ -348,6 +395,7 @@ public class FightMenu
             StageLoader.consumable2use = "high healing potion";
             StageLoader.choiceEnd = true;
             StageLoader.sleep(500);
+            update();
         }
     }
 }

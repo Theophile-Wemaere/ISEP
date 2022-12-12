@@ -201,5 +201,6 @@ public class GUIParser extends Application implements InputParser
     public void waitKey()
     {
         StageLoader.choiceEnd = false;
+        StageLoader.player += 1;
     }
 }

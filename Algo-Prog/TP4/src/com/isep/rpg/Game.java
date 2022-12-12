@@ -70,10 +70,13 @@ public class Game
         Enemy boss = new Enemy(this.BossNames.get(n),20);
         this.boss.add(boss);
 
-        StageLoader.enemies = (ArrayList<Combatant>) this.enemies.clone();
-        StageLoader.boss = (ArrayList<Combatant>) this.boss.clone();
-        StageLoader.heros = (ArrayList<Combatant>) this.heros.clone();
-        StageLoader.consumables = (ArrayList<Consumable>) this.consumables.clone();
+        if(this.parser instanceof GUIParser)
+        {
+            StageLoader.enemies = (ArrayList<Combatant>) this.enemies.clone();
+            StageLoader.boss = (ArrayList<Combatant>) this.boss.clone();
+            StageLoader.heros = (ArrayList<Combatant>) this.heros.clone();
+            StageLoader.consumables = (ArrayList<Consumable>) this.consumables.clone();
+        }
     }
 
     public void start()
@@ -97,6 +100,15 @@ public class Game
 
             parser.waitKey();
             healDefense();
+            if(this.doBoss)
+                StageLoader.deepCopyCombatant(this.boss,StageLoader.boss);
+            else
+                StageLoader.deepCopyCombatant(this.enemies,StageLoader.enemies);
+            StageLoader.deepCopyCombatant(this.heros,StageLoader.heros);
+            StageLoader.deepCopyComsumables(this.consumables,StageLoader.consumables);
+
+            if(StageLoader.player > 3)
+                StageLoader.player = 0;
         }
     }
 
@@ -110,9 +122,10 @@ public class Game
             clearConsole();
             if(this.parser instanceof ConsoleParser)
             {
-                printInventory();
+                //printInventory();
                 printHeros();
             }
+            printInventory();
             if(!this.doBoss)
             {
                 if(this.parser instanceof ConsoleParser)
@@ -215,6 +228,9 @@ public class Game
                 else
                     this.boss = (ArrayList<Combatant>) currentEnemy.clone();
             }
+            StageLoader.heros = (ArrayList<Combatant>) this.heros.clone();
+            StageLoader.consumables = (ArrayList<Consumable>) this.consumables.clone();
+            System.out.println("esfdzed = " + Integer.toString(StageLoader.consumables.size()));
         }
     }
 

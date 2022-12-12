@@ -58,6 +58,7 @@ public class StageLoader
     public static Hero hero2;
     public static Hero hero3;
     public static Hero hero4;
+    public static int player = 0;
     public static ArrayList<Combatant> enemies = new ArrayList<>();
     public static ArrayList<Combatant> boss = new ArrayList<>();
     public static ArrayList<Combatant> heros = new ArrayList<>();
@@ -70,6 +71,24 @@ public class StageLoader
             Thread.sleep(n);
         } catch (InterruptedException e) {
             // Handle the exception
+        }
+    }
+
+    public static void deepCopyCombatant(ArrayList<Combatant> input, ArrayList<Combatant> output)
+    {
+        output.clear();
+        for(Combatant element : input)
+        {
+            output.add(element);
+        }
+    }
+
+    public static void deepCopyComsumables(ArrayList<Consumable> input, ArrayList<Consumable> output)
+    {
+        output.clear();
+        for(Consumable element : input)
+        {
+            output.add(element);
         }
     }
 }
