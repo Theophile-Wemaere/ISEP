@@ -256,16 +256,16 @@ public class HeroMenu
         switch(choice)
         {
             case "Warrior":
-                image.setImage(new Image("/data/imgs/warrior.png"));
+                image.setImage(new Image("/data/imgs/warrior.gif"));
                 break;
             case "Hunter":
-                image.setImage(new Image("/data/imgs/hunter.png"));
+                image.setImage(new Image("/data/imgs/hunter.gif"));
                 break;
             case "Mage":
-                image.setImage(new Image("/data/imgs/mage.png"));
+                image.setImage(new Image("/data/imgs/mage.gif"));
                 break;
             case "Healer":
-                image.setImage(new Image("/data/imgs/healer.png"));
+                image.setImage(new Image("/data/imgs/healer.gif"));
                 break;
         }
     }

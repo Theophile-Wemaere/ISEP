@@ -34,6 +34,7 @@ public class StageLoader
         // Set the root node of the scene to the newly loaded FXML file
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
+        primaryStage.setTitle("MINI RPG LITE 3000 : The return of the fallens angels");
         primaryStage.show();
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
