@@ -15,23 +15,29 @@
 
 <AnchorPane prefHeight="540" prefWidth="960" style="-fx-background-color: #948A8A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.utils.scenecontrollers.HeroMenu">
    <children>
-      <Slider fx:id="slider" blockIncrement="1" layoutX="134.0" layoutY="478.0" majorTickUnit="1" max="4" min="1" minorTickCount="0" prefHeight="61.0" prefWidth="690.0" showTickLabels="true" snapToTicks="true" />
+      <ImageView fitHeight="555.0" fitWidth="972.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/bg-3.png" />
+         </image>
+      </ImageView>
 
-      <Label fx:id="title" layoutX="302.0" layoutY="5.0" prefHeight="56.0" prefWidth="355.0" text="Create your team !">
+      <Slider fx:id="slider" blockIncrement="1" layoutX="134.0" layoutY="478.0" majorTickUnit="1" max="4" min="1" minorTickCount="0" prefHeight="61.0" prefWidth="690.0" snapToTicks="true" />
+
+      <Label fx:id="title" layoutX="302.0" layoutY="5.0" prefHeight="56.0" prefWidth="355.0" text="Create your team !" textFill="WHITE">
          <font>
             <Font name="The Wild Breath of Zelda" size="50.0" />
          </font>
       </Label>
 
-      <AnchorPane fx:id="box1" layoutX="94.0" layoutY="62.0" prefHeight="162.0" prefWidth="295.0" style="-fx-border-color: black;">
+      <AnchorPane fx:id="box1" layoutX="94.0" layoutY="62.0" prefHeight="162.0" prefWidth="295.0" style="-fx-border-color: black; -fx-background-color: #00000099;">
          <children>
-            <Label fx:id="name1" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Name">
+            <Label fx:id="name1" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Name" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
             </Label>
             <TextField fx:id="field1" layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Aragorn" />
-            <Label fx:id="class1" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="96.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class">
+            <Label fx:id="class1" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="96.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
@@ -44,15 +50,15 @@
          </children>
       </AnchorPane>
 
-      <AnchorPane fx:id="box2" layoutX="94.0" layoutY="270.0" prefHeight="162.0" prefWidth="295.0" style="-fx-border-color: black;">
+      <AnchorPane fx:id="box2" layoutX="94.0" layoutY="270.0" prefHeight="162.0" prefWidth="295.0" style="-fx-border-color: black; -fx-background-color: #00000099;">
          <children>
-            <Label fx:id="name2" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Name">
+            <Label fx:id="name2" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Name" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
             </Label>
             <TextField fx:id="field2" layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Legolas" />
-            <Label fx:id="class2" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="96.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class">
+            <Label fx:id="class2" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="96.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
@@ -65,15 +71,15 @@
          </children>
       </AnchorPane>
 
-      <AnchorPane fx:id="box3" layoutX="541.0" layoutY="62.0" prefHeight="162.0" prefWidth="295.0" style="-fx-border-color: black;">
+      <AnchorPane fx:id="box3" layoutX="541.0" layoutY="62.0" prefHeight="162.0" prefWidth="295.0" style="-fx-border-color: black; -fx-background-color: #00000099;">
          <children>
-            <Label fx:id="name3" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Name">
+            <Label fx:id="name3" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Name" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
             </Label>
             <TextField fx:id="field3" layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Gandalf" />
-            <Label fx:id="class3" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="96.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class">
+            <Label fx:id="class3" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="96.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class" textFill="#efd3d3">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
@@ -86,15 +92,15 @@
          </children>
       </AnchorPane>
 
-      <AnchorPane fx:id="box4" layoutX="541.0" layoutY="270.0" prefHeight="162.0" prefWidth="295.0" style="-fx-border-color: black;">
+      <AnchorPane fx:id="box4" layoutX="541.0" layoutY="270.0" prefHeight="162.0" prefWidth="295.0" style="-fx-border-color: black; -fx-background-color: #00000099;">
          <children>
-            <Label fx:id="name4" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Name">
+            <Label fx:id="name4" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="14.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Name" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
             </Label>
             <TextField fx:id="field4" layoutX="18.0" layoutY="56.0" minWidth="-Infinity" prefHeight="27.0" prefWidth="117.0" promptText="Elrond" />
-            <Label fx:id="class4" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="96.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class">
+            <Label fx:id="class4" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="96.0" minWidth="-Infinity" prefHeight="41.0" prefWidth="67.0" text="Class" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="24.0" />
                </font>
@@ -113,7 +119,7 @@
          </font>
       </Button>
 
-      <Button fx:id="sound" layoutX="912.0" mnemonicParsing="false" onAction="#onSoundButton" style="-fx-background-color: #00000000;" text="">
+      <Button fx:id="sound" layoutX="912.0" mnemonicParsing="false" onAction="#onSoundButton" style="-fx-background-color: #00000000;" text="" textFill="WHITE">
          <font>
             <Font name="Meslo LG S Regular Nerd Font Complete" size="20.0" />
          </font>

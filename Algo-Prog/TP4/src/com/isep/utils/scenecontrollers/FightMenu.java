@@ -3,10 +3,12 @@ package com.isep.utils.scenecontrollers;
 import com.isep.rpg.Enemy;
 import com.isep.rpg.hero.*;
 import com.isep.rpg.item.Consumable;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.geometry.NodeOrientation;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,7 +17,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.event.*;
 import javafx.scene.input.MouseEvent;
-
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,8 +28,6 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javafx.util.Duration;
-
-
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -49,6 +48,10 @@ public class FightMenu
     @FXML
     private ImageView imageHero1,imageHero2,imageHero3,imageHero4,imageBag;
 
+    @FXML
+    ImageView imageSmaug, imageShelob, imageAzog, imageLurtz;
+
+    private Thread thread;
     private Clip clip = AudioSystem.getClip();
 
     public FightMenu() throws LineUnavailableException {
@@ -126,58 +129,84 @@ public class FightMenu
             updateStatus(statusHero4,(Hero) StageLoader.heros.get(3));
         }
 
+        for(int i=0;i<StageLoader.enemies.size();i++)
+        {
+            String current = StageLoader.enemies.get(i).getName();
+            switch(current)
+            {
+                case "Smaug":
+                    StageLoader.Smaug = true;
+                    break;
+                case "Shelob":
+                    StageLoader.Shelob = true;
+                    break;
+                case "Lurtz":
+                    StageLoader.Lurtz = true;
+                    break;
+                case "Azog":
+                    StageLoader.Azog = true;
+                    break;
+            }
+        }
+        System.out.println(StageLoader.Smaug);
+        System.out.println(StageLoader.Shelob);
+        System.out.println(StageLoader.Azog);
+        System.out.println(StageLoader.Lurtz);
+
+
         sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
-        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/enemyAudio.wav")));
+        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/enemyAudio2.wav")));
         if(StageLoader.sound)
             this.clip.loop(Clip.LOOP_CONTINUOUSLY);
         else
             sound.setText("\uF026");
-
         updateInventory();
         updateSpeech("What will " + StageLoader.heros.get(StageLoader.player).getName() + " do ?");
     }
 
     public void update()
     {
-        System.out.print("UPDATING...");
+        StageLoader.sleep(1000);
+        Platform.runLater(() -> {
 
-        boxHero1.setVisible(false);
-        boxHero2.setVisible(false);
-        boxHero3.setVisible(false);
-        boxHero4.setVisible(false);
+            System.out.print("UPDATING...");
 
-        statusHero1.setVisible(false);
-        statusHero2.setVisible(false);
-        statusHero3.setVisible(false);
-        statusHero4.setVisible(false);
+            boxHero1.setVisible(false);
+            boxHero2.setVisible(false);
+            boxHero3.setVisible(false);
+            boxHero4.setVisible(false);
 
-        if(StageLoader.heros.size() > 0)
-        {
-            setupHero((Hero) StageLoader.heros.get(0),imageHero1,nameHero1);
-            boxHero1.setVisible(true);
-            updateStatus(statusHero1,(Hero) StageLoader.heros.get(0));
-        }
-        if(StageLoader.heros.size() > 1)
-        {
-            setupHero((Hero) StageLoader.heros.get(1),imageHero2,nameHero2);
-            boxHero2.setVisible(true);
-            updateStatus(statusHero2,(Hero) StageLoader.heros.get(1));
-        }
-        if(StageLoader.heros.size() > 2)
-        {
-            setupHero((Hero) StageLoader.heros.get(2),imageHero3,nameHero3);
-            boxHero3.setVisible(true);
-            updateStatus(statusHero3,(Hero) StageLoader.heros.get(2));
-        }
-        if(StageLoader.heros.size() > 3)
-        {
-            setupHero((Hero) StageLoader.heros.get(3),imageHero4,nameHero4);
-            boxHero4.setVisible(true);
-            updateStatus(statusHero4,(Hero) StageLoader.heros.get(3));
-        }
+            statusHero1.setVisible(false);
+            statusHero2.setVisible(false);
+            statusHero3.setVisible(false);
+            statusHero4.setVisible(false);
 
-        updateInventory();
-        updateSpeech("What will " + StageLoader.heros.get(StageLoader.player).getName() + " do ?");
+            if (StageLoader.heros.size() > 0) {
+                setupHero((Hero) StageLoader.heros.get(0), imageHero1, nameHero1);
+                boxHero1.setVisible(true);
+                updateStatus(statusHero1, (Hero) StageLoader.heros.get(0));
+            }
+            if (StageLoader.heros.size() > 1) {
+                setupHero((Hero) StageLoader.heros.get(1), imageHero2, nameHero2);
+                boxHero2.setVisible(true);
+                updateStatus(statusHero2, (Hero) StageLoader.heros.get(1));
+            }
+            if (StageLoader.heros.size() > 2) {
+                setupHero((Hero) StageLoader.heros.get(2), imageHero3, nameHero3);
+                boxHero3.setVisible(true);
+                updateStatus(statusHero3, (Hero) StageLoader.heros.get(2));
+            }
+            if (StageLoader.heros.size() > 3) {
+                setupHero((Hero) StageLoader.heros.get(3), imageHero4, nameHero4);
+                boxHero4.setVisible(true);
+                updateStatus(statusHero4, (Hero) StageLoader.heros.get(3));
+            }
+
+            updateInventory();
+            updateEnemies();
+            updateSpeech("What will " + StageLoader.heros.get(StageLoader.player).getName() + " do ?");
+            this.thread.interrupt();
+        });
     }
 
     @FXML
@@ -246,6 +275,47 @@ public class FightMenu
                         break;
                 }
             }
+        }
+        if(StageLoader.Smaug && !boxSmaug.isVisible())
+        {
+            boxSmaug.setVisible(true);
+            labelSmaug.setVisible(false);
+            imageSmaug.setImage(new Image("/data/imgs/grave.png"));
+            imageSmaug.setFitHeight(150);
+            imageSmaug.setFitWidth(200);
+            imageSmaug.setLayoutX(-14);
+            imageSmaug.setLayoutX(26);
+        }
+        if(StageLoader.Lurtz && !boxLurtz.isVisible())
+        {
+            boxLurtz.setVisible(true);
+            labelLurtz.setVisible(false);
+            imageLurtz.setImage(new Image("/data/imgs/grave.png"));
+            imageLurtz.setFitHeight(150);
+            imageLurtz.setFitWidth(200);
+            imageLurtz.setLayoutX(-14);
+            imageLurtz.setLayoutX(26);
+        }
+        if(StageLoader.Azog && !boxAzog.isVisible())
+        {
+            boxAzog.setVisible(true);
+            labelAzog.setVisible(false);
+            imageAzog.setImage(new Image("/data/imgs/grave.png"));
+            imageAzog.setFitHeight(109);
+            imageAzog.setFitWidth(112);
+            imageAzog.setLayoutX(9);
+            imageAzog.setLayoutX(65);
+        }
+        if(StageLoader.Shelob && !boxShelob.isVisible())
+        {
+            boxShelob.setVisible(true);
+            labelShelob.setVisible(false);
+            imageShelob.setImage(new Image("/data/imgs/grave.png"));
+            imageShelob.setFitHeight(150);
+            imageShelob.setFitWidth(200);
+            imageShelob.setLayoutX(234);
+            imageShelob.setLayoutX(41);
+            imageShelob.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         }
     }
 
@@ -329,46 +399,68 @@ public class FightMenu
         for(int i = 0; i<s.length();i++)
         {
             t += s.charAt(i);
-            //System.out.println(t);
-            labelSpeech.setText(t);
-            StageLoader.sleep(10);
+            System.out.println(t);
+            this.labelSpeech.setText(t);
+            //StageLoader.sleep(10);
         }
     }
 
     @FXML
     protected void attackAzog()
     {
-        StageLoader.action = 1;
-        StageLoader.currentEnemy = "Azog";
-        StageLoader.choiceEnd = true;
-        StageLoader.sleep(1000);
-        updateEnemies();
+        if(labelAzog.isVisible())
+        {
+            StageLoader.action = 1;
+            StageLoader.currentEnemy = "Azog";
+            StageLoader.choiceEnd = true;
+            //StageLoader.sleep(100);
+            this.thread = new Thread(() -> update());
+            this.thread.start();
+            //updateEnemies();
+        }
     }
     @FXML
     protected void attackSmaug()
     {
-        StageLoader.action = 1;
-        StageLoader.currentEnemy = "Smaug";
-        StageLoader.choiceEnd = true;
-        StageLoader.sleep(1000);
-        updateEnemies();
+        if(labelSmaug.isVisible())
+        {
+            StageLoader.action = 1;
+            StageLoader.currentEnemy = "Smaug";
+            StageLoader.choiceEnd = true;
+            //StageLoader.sleep(100);
+            this.thread = new Thread(() -> update());
+            this.thread.start();
+            //updateEnemies();
+        }
+
     }
     @FXML
     protected void attackLurtz()
     {
-        StageLoader.action = 1;
-        StageLoader.currentEnemy = "Lurtz";
-        StageLoader.choiceEnd = true;
-        StageLoader.sleep(1000);
-        updateEnemies();
-    }@FXML
+        if(labelLurtz.isVisible())
+        {
+            StageLoader.action = 1;
+            StageLoader.currentEnemy = "Lurtz";
+            StageLoader.choiceEnd = true;
+            //StageLoader.sleep(100);
+            this.thread = new Thread(() -> update());
+            this.thread.start();
+            //updateEnemies();
+        }
+    }
+    @FXML
     protected void attackShelob()
     {
-        StageLoader.action = 1;
-        StageLoader.currentEnemy = "Shelob";
-        StageLoader.choiceEnd = true;
-        StageLoader.sleep(1000);
-        updateEnemies();
+        if(labelShelob.isVisible())
+        {
+            StageLoader.action = 1;
+            StageLoader.currentEnemy = "Shelob";
+            StageLoader.choiceEnd = true;
+            //StageLoader.sleep(100);
+            this.thread = new Thread(() -> update());
+            this.thread.start();
+            //updateEnemies();
+        }
     }
 
 

@@ -53,6 +53,10 @@ public class StageLoader
 
     public static boolean sound = false;
     public static boolean choiceEnd = false;
+    public static boolean Smaug = false;
+    public static boolean Shelob = false;
+    public static boolean Azog = false;
+    public static boolean Lurtz = false;
     public static int herosNumber = 4;
     public static int action;
     public static Hero hero1;

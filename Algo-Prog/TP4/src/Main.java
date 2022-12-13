@@ -11,11 +11,11 @@ public class Main
             @Override                                                                                                                       
             public void run()                                                                                                               
             {                                                                                                                               
-                System.out.println("\n\n\u001B[31m" + "/!\\ Interrupt detected /!\\\n" + "\u001B[0m");                                                                          
-            }                                                                                                                               
+                System.out.println("\n\n\u001B[31m" + "/!\\ Interrupt detected /!\\\n" + "\u001B[0m");
+            }
         });
-        
-        // InputParser parser = new ConsoleParser();
+
+        //InputParser parser = new ConsoleParser();
         InputParser parser = new GUIParser();
         Game game = new Game(parser);
         game.start();

@@ -38,6 +38,7 @@ public class Game
                 }
             }).start();
         }
+
         clearConsole();
         this.parser = parser;
         this.number = this.parser.getHeroNum();
@@ -48,7 +49,7 @@ public class Game
         for(int i=0;i<this.number;i++)
         {
             clearConsole();
-            this.heros.add(parser.getHeroClasse());
+            this.heros.add(this.parser.getHeroClasse());
         }
 
         // get the enemy

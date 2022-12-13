@@ -50,7 +50,7 @@
                   <Font name="The Wild Breath of Zelda" size="17.0" />
                </font>
             </Label>
-            <ImageView fitHeight="167.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageShelob" fitHeight="167.0" fitWidth="177.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/Shelob.gif" />
                </image>
@@ -59,7 +59,7 @@
       </AnchorPane>
       <AnchorPane fx:id="boxSmaug" layoutX="784.0" layoutY="258.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#attackSmaug" prefHeight="190.0" prefWidth="124.0">
          <children>
-            <ImageView fitHeight="227.0" fitWidth="228.0" layoutX="-52.0" layoutY="-71.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageSmaug" fitHeight="227.0" fitWidth="228.0" layoutX="-52.0" layoutY="-71.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/Smaug.gif" />
                </image>
@@ -78,7 +78,7 @@
                   <Font name="The Wild Breath of Zelda" size="17.0" />
                </font>
             </Label>
-            <ImageView fitHeight="167.0" fitWidth="177.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageAzog" fitHeight="167.0" fitWidth="177.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/Azog.gif" />
                </image>
@@ -92,7 +92,7 @@
                   <Font name="The Wild Breath of Zelda" size="17.0" />
                </font>
             </Label>
-            <ImageView fitHeight="167.0" fitWidth="177.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageLurtz" fitHeight="167.0" fitWidth="177.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/Lurtz.gif" />
                </image>
@@ -165,79 +165,79 @@
             <Image url="@../imgs/bagpack.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="boxBag" layoutX="309.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 10;">
+      <AnchorPane fx:id="boxBag" layoutX="309.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 0;">
          <children>
-            <ImageView fitHeight="370.0" fitWidth="330.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="357.0" fitWidth="396.0" layoutX="-4.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imgs/button-bg.jpg" />
+                  <Image url="@../imgs/inventory-bg.png" />
                </image>
             </ImageView>
-            <Button fx:id="buttonCloseBag" layoutX="305.0" layoutY="-33.0" mnemonicParsing="false" onAction="#closeBag" style="-fx-background-color: #00000000;" text="" textFill="RED">
+            <Button fx:id="buttonCloseBag" layoutX="249.0" layoutY="7.0" mnemonicParsing="false" onAction="#closeBag" style="-fx-background-color: #00000000;" text="" textFill="RED">
                <font>
                   <Font name="Meslo LG S Regular Nerd Font Complete" size="40.0" />
                </font>
             </Button>
-            <Label fx:id="labelInventory" layoutX="119.0" layoutY="21.0" text="Inventory" textFill="WHITE">
+            <Label fx:id="labelInventory" layoutX="119.0" layoutY="39.0" text="Inventory" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="30.0" />
                </font>
             </Label>
-            <ImageView fx:id="imageOnigiri" fitHeight="56.0" fitWidth="56.0" layoutX="23.0" layoutY="88.0" onMouseClicked="#useOnigiri" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageOnigiri" fitHeight="56.0" fitWidth="56.0" layoutX="51.0" layoutY="88.0" onMouseClicked="#useOnigiri" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/onigiri.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imageSushis" fitHeight="49.0" fitWidth="69.0" layoutX="18.0" layoutY="164.0" onMouseClicked="#useSushis" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageSushis" fitHeight="49.0" fitWidth="69.0" layoutX="46.0" layoutY="164.0" onMouseClicked="#useSushis" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/sushis.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imageRamen" fitHeight="71.0" fitWidth="65.0" layoutX="24.0" layoutY="218.0" onMouseClicked="#useRamen" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageRamen" fitHeight="71.0" fitWidth="65.0" layoutX="52.0" layoutY="213.0" onMouseClicked="#useRamen" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/ramen.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imageLowPot" fitHeight="56.0" fitWidth="56.0" layoutX="213.0" layoutY="88.0" onMouseClicked="#useLowPot" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageLowPot" fitHeight="56.0" fitWidth="56.0" layoutX="203.0" layoutY="88.0" onMouseClicked="#useLowPot" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/low-potion.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imageMedPot" fitHeight="49.0" fitWidth="69.0" layoutX="208.0" layoutY="164.0" onMouseClicked="#useMedPot" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageMedPot" fitHeight="49.0" fitWidth="69.0" layoutX="199.0" layoutY="164.0" onMouseClicked="#useMedPot" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/medium-potion.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="imageHighPot" fitHeight="71.0" fitWidth="65.0" layoutX="203.0" layoutY="225.0" onMouseClicked="#useHighPot" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageHighPot" fitHeight="71.0" fitWidth="65.0" layoutX="193.0" layoutY="225.0" onMouseClicked="#useHighPot" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/high-potion.png" />
                </image>
             </ImageView>
-            <Label fx:id="labelOnigiri" layoutX="101.0" layoutY="99.0" text="0" textFill="WHITE">
+            <Label fx:id="labelOnigiri" layoutX="119.0" layoutY="99.0" text="0" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="labelRamen" layoutX="101.0" layoutY="244.0" text="0" textFill="WHITE">
+            <Label fx:id="labelRamen" layoutX="119.0" layoutY="244.0" text="0" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="labelSushis" layoutX="101.0" layoutY="172.0" text="0" textFill="WHITE">
+            <Label fx:id="labelSushis" layoutX="119.0" layoutY="172.0" text="0" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="labelLowPotion" layoutX="276.0" layoutY="99.0" text="0" textFill="WHITE">
+            <Label fx:id="labelLowPotion" layoutX="249.0" layoutY="99.0" text="0" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="labelMediumPotion" layoutX="276.0" layoutY="172.0" text="0" textFill="WHITE">
+            <Label fx:id="labelMediumPotion" layoutX="249.0" layoutY="172.0" text="0" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="labelHighPotion" layoutX="276.0" layoutY="244.0" text="0" textFill="WHITE">
+            <Label fx:id="labelHighPotion" layoutX="249.0" layoutY="244.0" text="0" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="30.0" />
                </font>

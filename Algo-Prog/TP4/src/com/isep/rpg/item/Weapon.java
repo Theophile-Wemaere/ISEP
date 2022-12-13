@@ -19,7 +19,7 @@ public class Weapon extends Item
                 break;
 
             case "saber":
-                this.damages = 2;
+                this.damages = 20;
                 this.malus = false;
                 break;
 
