@@ -43,7 +43,7 @@
             <Font name="The Wild Breath of Zelda" size="17.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="boxShelob" layoutX="700.0" layoutY="27.0" prefHeight="166.0" prefWidth="140.0">
+      <AnchorPane fx:id="boxShelob" layoutX="700.0" layoutY="27.0" onMouseClicked="#attackShelob" prefHeight="166.0" prefWidth="140.0">
          <children>
             <Label fx:id="labelShelob" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="167.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="113.0" style="-fx-background-color: black;" text="Shelob" textFill="WHITE">
                <font>
@@ -57,23 +57,23 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boxSmaug" layoutX="784.0" layoutY="258.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="124.0">
+      <AnchorPane fx:id="boxSmaug" layoutX="784.0" layoutY="258.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#attackSmaug" prefHeight="190.0" prefWidth="124.0">
          <children>
             <ImageView fitHeight="227.0" fitWidth="228.0" layoutX="-52.0" layoutY="-71.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imgs/Smaug.gif" />
                </image>
             </ImageView>
-            <Label fx:id="labelSmaug" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="165.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="113.0" style="-fx-background-color: black;" text="Smaug" textFill="WHITE">
+            <Label fx:id="labelSmaug" alignment="CENTER" contentDisplay="CENTER" layoutX="-9.0" layoutY="164.0" minHeight="-Infinity" prefHeight="23.0" prefWidth="140.0" style="-fx-background-color: black;" text="Smaug" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="17.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boxAzog" layoutX="570.0" layoutY="258.0" prefHeight="166.0" prefWidth="140.0">
+      <AnchorPane fx:id="boxAzog" layoutX="570.0" layoutY="258.0" onMouseClicked="#attackAzog" prefHeight="166.0" prefWidth="140.0">
          <children>
-            <Label fx:id="labelAzog" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="167.0" minHeight="-Infinity" prefHeight="21.0" prefWidth="84.0" style="-fx-background-color: black;" text="Azog" textFill="WHITE">
+            <Label fx:id="labelAzog" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="165.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="112.0" style="-fx-background-color: black;" text="Azog" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="17.0" />
                </font>
@@ -85,9 +85,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boxLurtz" layoutX="532.0" layoutY="97.0" prefHeight="166.0" prefWidth="140.0">
+      <AnchorPane fx:id="boxLurtz" layoutX="532.0" layoutY="97.0" onMouseClicked="#attackLurtz" prefHeight="166.0" prefWidth="140.0">
          <children>
-            <Label fx:id="labelLurtz" alignment="CENTER" contentDisplay="CENTER" layoutX="41.0" layoutY="167.0" minHeight="-Infinity" prefHeight="21.0" prefWidth="84.0" style="-fx-background-color: black;" text="Lurtz" textFill="WHITE">
+            <Label fx:id="labelLurtz" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="165.0" minHeight="-Infinity" prefHeight="23.0" prefWidth="114.0" style="-fx-background-color: black;" text="Lurtz" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="17.0" />
                </font>
@@ -160,7 +160,7 @@
             <Font name="The Wild Breath of Zelda" size="17.0" />
          </font>
       </Label>
-      <ImageView fx:id="imageBag" fitHeight="62.0" fitWidth="56.0" layoutX="166.0" layoutY="3.0" onMouseClicked="#openBagPack" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageBag" fitHeight="88.0" fitWidth="79.0" layoutX="7.0" layoutY="460.0" onMouseClicked="#openBagPack" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imgs/bagpack.png" />
          </image>

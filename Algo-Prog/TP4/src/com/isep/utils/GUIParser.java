@@ -160,38 +160,33 @@ public class GUIParser extends Application implements InputParser
 
     public int getTarget(ArrayList<Combatant> targets)
     {
-        Scanner scanner = new Scanner(System.in);
-        boolean c;
-        int choice = 0;
-        System.out.println("\nChoose your target : ");
-        for(int i=0;i<targets.size();i++)
+        String c = StageLoader.currentEnemy;
+        int choice;
+        for (Combatant target : targets)
         {
-            System.out.println("[" + Integer.toString(i+1) + "]" + " " + targets.get(i).getName() + "(" + Integer.toString(targets.get(i).getHP()) +")");
-        }
-        c = false;
-        while(!c)
-        {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
-            if(choice >= 1 && choice <= targets.size())
+            if (target.getName().equals(c))
             {
-                c = true;
+                choice = targets.indexOf(target);
+                System.out.println("Using " + target.getName() + " on index " + Integer.toString(choice));
+                StageLoader.choiceEnd = false;
+                return choice;
             }
         }
-        return choice-1;
+        return -1;
     }
 
     public int chooseItem(ArrayList<Consumable> consumables)
     {
         String c = StageLoader.consumable2use;
         int choice;
-        for(int i = 0;i<consumables.size();i++)
+        System.out.println("need to use " + c);
+        for (Consumable consumable : consumables)
         {
-            Consumable current = consumables.get(i);
-            if(current.getName().equals(c));
+            if (consumable.getName().equals(c))
             {
-                System.out.println("Using " + c);
-                choice = i;
+                choice = consumables.indexOf(consumable);
+                System.out.println("Using " + consumable.getName() + " on index " + Integer.toString(choice));
+                StageLoader.choiceEnd = false;
                 return choice;
             }
         }
@@ -200,7 +195,6 @@ public class GUIParser extends Application implements InputParser
 
     public void waitKey()
     {
-        StageLoader.choiceEnd = false;
         StageLoader.player += 1;
     }
 }

@@ -101,13 +101,14 @@ public class Game
             parser.waitKey();
             healDefense();
             if(this.doBoss)
-                StageLoader.deepCopyCombatant(this.boss,StageLoader.boss);
+                StageLoader.boss = (ArrayList<Combatant>) this.boss.clone();
             else
-                StageLoader.deepCopyCombatant(this.enemies,StageLoader.enemies);
-            StageLoader.deepCopyCombatant(this.heros,StageLoader.heros);
-            StageLoader.deepCopyComsumables(this.consumables,StageLoader.consumables);
+                StageLoader.enemies = (ArrayList<Combatant>) this.enemies.clone();
 
-            if(StageLoader.player > 3)
+            StageLoader.heros = (ArrayList<Combatant>) this.heros.clone();
+            StageLoader.consumables = (ArrayList<Consumable>) this.consumables.clone();
+
+            if(StageLoader.player > StageLoader.herosNumber - 1)
                 StageLoader.player = 0;
         }
     }
@@ -126,6 +127,7 @@ public class Game
                 printHeros();
             }
             printInventory();
+            printEnemies();
             if(!this.doBoss)
             {
                 if(this.parser instanceof ConsoleParser)
@@ -230,7 +232,6 @@ public class Game
             }
             StageLoader.heros = (ArrayList<Combatant>) this.heros.clone();
             StageLoader.consumables = (ArrayList<Consumable>) this.consumables.clone();
-            System.out.println("esfdzed = " + Integer.toString(StageLoader.consumables.size()));
         }
     }
 

@@ -2,6 +2,7 @@ package com.isep.utils.scenecontrollers;
 
 
 import com.isep.rpg.Combatant;
+import com.isep.rpg.Enemy;
 import com.isep.rpg.hero.Hero;
 import com.isep.rpg.item.Consumable;
 import com.isep.utils.GUIParser;
@@ -64,6 +65,7 @@ public class StageLoader
     public static ArrayList<Combatant> heros = new ArrayList<>();
     public static ArrayList<Consumable> consumables = new ArrayList<>();
     public static String consumable2use;
+    public static String currentEnemy;
 
     public static void sleep(int n)
     {
@@ -71,24 +73,6 @@ public class StageLoader
             Thread.sleep(n);
         } catch (InterruptedException e) {
             // Handle the exception
-        }
-    }
-
-    public static void deepCopyCombatant(ArrayList<Combatant> input, ArrayList<Combatant> output)
-    {
-        output.clear();
-        for(Combatant element : input)
-        {
-            output.add(element);
-        }
-    }
-
-    public static void deepCopyComsumables(ArrayList<Consumable> input, ArrayList<Consumable> output)
-    {
-        output.clear();
-        for(Consumable element : input)
-        {
-            output.add(element);
         }
     }
 }

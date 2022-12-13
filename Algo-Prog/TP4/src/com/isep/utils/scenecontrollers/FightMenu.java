@@ -1,5 +1,6 @@
 package com.isep.utils.scenecontrollers;
 
+import com.isep.rpg.Enemy;
 import com.isep.rpg.hero.*;
 import com.isep.rpg.item.Consumable;
 import javafx.beans.value.ChangeListener;
@@ -97,32 +98,7 @@ public class FightMenu
 
         boxBag.setVisible(false);
 
-        int i;
-
-        for(i=0;i<StageLoader.enemies.size();i++)
-        {
-            String current = StageLoader.enemies.get(i).getName();
-            int hp = StageLoader.enemies.get(i).getHP();
-            switch(current)
-            {
-                case "Lurtz":
-                    boxLurtz.setVisible(true);
-                    labelLurtz.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current);
-                    break;
-                case "Smaug":
-                    boxSmaug.setVisible(true);
-                    labelSmaug.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current);
-                    break;
-                case "Azog":
-                    boxAzog.setVisible(true);
-                    labelAzog.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current);
-                    break;
-                case "Shelob":
-                    boxShelob.setVisible(true);
-                    labelShelob.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current);
-                    break;
-            }
-        }
+        updateEnemies();
 
         boxHero2.setVisible(false);
         boxHero3.setVisible(false);
@@ -199,6 +175,7 @@ public class FightMenu
             boxHero4.setVisible(true);
             updateStatus(statusHero4,(Hero) StageLoader.heros.get(3));
         }
+
         updateInventory();
         updateSpeech("What will " + StageLoader.heros.get(StageLoader.player).getName() + " do ?");
     }
@@ -235,17 +212,62 @@ public class FightMenu
             boxBag.setVisible(true);
     }
 
+    private void updateEnemies()
+    {
+        int i;
+        boxSmaug.setVisible(false);
+        boxLurtz.setVisible(false);
+        boxAzog.setVisible(false);
+        boxShelob.setVisible(false);
+
+        for(i=0;i<StageLoader.enemies.size();i++)
+        {
+            Enemy current =(Enemy) StageLoader.enemies.get(i);
+            int hp = StageLoader.enemies.get(i).getHP();
+            if(current.getHP() != 0)
+            {
+                switch (current.getName())
+                {
+                    case "Lurtz":
+                        boxLurtz.setVisible(true);
+                        labelLurtz.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        break;
+                    case "Smaug":
+                        boxSmaug.setVisible(true);
+                        labelSmaug.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        break;
+                    case "Azog":
+                        boxAzog.setVisible(true);
+                        labelAzog.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        break;
+                    case "Shelob":
+                        boxShelob.setVisible(true);
+                        labelShelob.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        break;
+                }
+            }
+        }
+    }
+
     private void setupHero(Hero hero, ImageView image, Label name)
     {
         name.setText(hero.getName());
         if(hero instanceof Warrior)
+        {
             image.setImage(new Image("/data/imgs/warrior.gif"));
+        }
         if(hero instanceof Hunter)
+        {
             image.setImage(new Image("/data/imgs/hunter.gif"));
+        }
         if(hero instanceof Mage)
+        {
             image.setImage(new Image("/data/imgs/mage.gif"));
+        }
         if(hero instanceof Healer)
+        {
             image.setImage(new Image("/data/imgs/healer.gif"));
+        }
     }
 
     private void updateStatus(Label status, Hero hero)
@@ -292,13 +314,13 @@ public class FightMenu
                     highPot++;
                     break;
             }
-            labelOnigiri.setText(Integer.toString(onigiri));
-            labelSushis.setText(Integer.toString(sushis));
-            labelRamen.setText(Integer.toString(ramen));
-            labelLowPotion.setText(Integer.toString(lowPot));
-            labelMediumPotion.setText(Integer.toString(medPot));
-            labelHighPotion.setText(Integer.toString(highPot));
         }
+        labelOnigiri.setText(Integer.toString(onigiri));
+        labelSushis.setText(Integer.toString(sushis));
+        labelRamen.setText(Integer.toString(ramen));
+        labelLowPotion.setText(Integer.toString(lowPot));
+        labelMediumPotion.setText(Integer.toString(medPot));
+        labelHighPotion.setText(Integer.toString(highPot));
     }
 
     private void updateSpeech(String s)
@@ -314,6 +336,44 @@ public class FightMenu
     }
 
     @FXML
+    protected void attackAzog()
+    {
+        StageLoader.action = 1;
+        StageLoader.currentEnemy = "Azog";
+        StageLoader.choiceEnd = true;
+        StageLoader.sleep(1000);
+        updateEnemies();
+    }
+    @FXML
+    protected void attackSmaug()
+    {
+        StageLoader.action = 1;
+        StageLoader.currentEnemy = "Smaug";
+        StageLoader.choiceEnd = true;
+        StageLoader.sleep(1000);
+        updateEnemies();
+    }
+    @FXML
+    protected void attackLurtz()
+    {
+        StageLoader.action = 1;
+        StageLoader.currentEnemy = "Lurtz";
+        StageLoader.choiceEnd = true;
+        StageLoader.sleep(1000);
+        updateEnemies();
+    }@FXML
+    protected void attackShelob()
+    {
+        StageLoader.action = 1;
+        StageLoader.currentEnemy = "Shelob";
+        StageLoader.choiceEnd = true;
+        StageLoader.sleep(1000);
+        updateEnemies();
+    }
+
+
+
+    @FXML
     protected void useOnigiri()
     {
         if(labelOnigiri.getText().equals("0"))
@@ -323,7 +383,7 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "onigiri";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(500);
+            StageLoader.sleep(1000);
             update();
         }
     }
@@ -337,7 +397,7 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "sushis";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(500);
+            StageLoader.sleep(1000);
             update();
         }
     }
@@ -351,7 +411,7 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "ramen";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(500);
+            StageLoader.sleep(1000);
             update();
         }
     }
@@ -365,7 +425,7 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "simple healing potion";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(500);
+            StageLoader.sleep(1000);
             update();
         }
     }
@@ -380,7 +440,7 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "medium healing potion";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(500);
+            StageLoader.sleep(1000);
             update();
         }
     }
@@ -394,7 +454,7 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "high healing potion";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(500);
+            StageLoader.sleep(1000);
             update();
         }
     }

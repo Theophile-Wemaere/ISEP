@@ -225,6 +225,7 @@ public class HeroMenu
                 if(name.equals(""))
                     name = "Aragorn";
                 Warrior warrior = new Warrior(name);
+                warrior.chooseWeapons(1);
                 return warrior;
 
             case "Hunter":
@@ -232,6 +233,7 @@ public class HeroMenu
                 if(name.equals(""))
                     name = "Legolas";
                 Hunter hunter = new Hunter(name);
+                hunter.chooseWeapons(1);
                 return hunter;
 
             case "Mage":
@@ -239,6 +241,7 @@ public class HeroMenu
                 if(name.equals(""))
                     name = "Gandalf";
                 Mage mage = new Mage(name);
+                mage.chooseSpell(1);
                 return mage;
 
             case "Healer":
@@ -246,6 +249,7 @@ public class HeroMenu
                 if(name.equals(""))
                     name = "Elrond";
                 Healer healer = new Healer(name);
+                healer.chooseSpell(1);
                 return healer;
         }
         return null;
