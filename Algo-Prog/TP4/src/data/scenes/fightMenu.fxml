@@ -57,6 +57,11 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <ImageView fx:id="graveShelob" fitHeight="109.0" fitWidth="112.0" layoutX="728.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../imgs/grave.png" />
+         </image>
+      </ImageView>
       <AnchorPane fx:id="boxSmaug" layoutX="784.0" layoutY="258.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#attackSmaug" prefHeight="190.0" prefWidth="124.0">
          <children>
             <ImageView fx:id="imageSmaug" fitHeight="227.0" fitWidth="228.0" layoutX="-52.0" layoutY="-71.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
@@ -71,6 +76,11 @@
             </Label>
          </children>
       </AnchorPane>
+      <ImageView fx:id="graveSmaug" fitHeight="109.0" fitWidth="112.0" layoutX="791.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../imgs/grave.png" />
+         </image>
+      </ImageView>
       <AnchorPane fx:id="boxAzog" layoutX="570.0" layoutY="258.0" onMouseClicked="#attackAzog" prefHeight="166.0" prefWidth="140.0">
          <children>
             <Label fx:id="labelAzog" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="165.0" minHeight="-Infinity" prefHeight="22.0" prefWidth="112.0" style="-fx-background-color: black;" text="Azog" textFill="WHITE">
@@ -85,6 +95,11 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <ImageView fx:id="graveAzog" fitHeight="109.0" fitWidth="112.0" layoutX="578.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../imgs/grave.png" />
+         </image>
+      </ImageView>
       <AnchorPane fx:id="boxLurtz" layoutX="532.0" layoutY="97.0" onMouseClicked="#attackLurtz" prefHeight="166.0" prefWidth="140.0">
          <children>
             <Label fx:id="labelLurtz" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="165.0" minHeight="-Infinity" prefHeight="23.0" prefWidth="114.0" style="-fx-background-color: black;" text="Lurtz" textFill="WHITE">
@@ -99,6 +114,11 @@
             </ImageView>
          </children>
       </AnchorPane>
+      <ImageView fx:id="graveLurtz" fitHeight="109.0" fitWidth="112.0" layoutX="562.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../imgs/grave.png" />
+         </image>
+      </ImageView>
       <AnchorPane fx:id="boxHero4" layoutX="49.0" layoutY="277.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="124.0">
          <children>
             <Label fx:id="nameHero4" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="129.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: black;" text="Gandalf" textFill="WHITE">
@@ -165,7 +185,7 @@
             <Image url="@../imgs/bagpack.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="boxBag" layoutX="309.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 0;">
+      <AnchorPane fx:id="boxBag" layoutX="309.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 0;" visible="false">
          <children>
             <ImageView fitHeight="357.0" fitWidth="396.0" layoutX="-4.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                <image>

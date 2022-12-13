@@ -50,6 +50,8 @@ public class FightMenu
 
     @FXML
     ImageView imageSmaug, imageShelob, imageAzog, imageLurtz;
+    @FXML
+    ImageView graveSmaug,graveShelob,graveAzog,graveLurtz;
 
     private Thread thread;
     private Clip clip = AudioSystem.getClip();
@@ -148,11 +150,6 @@ public class FightMenu
                     break;
             }
         }
-        System.out.println(StageLoader.Smaug);
-        System.out.println(StageLoader.Shelob);
-        System.out.println(StageLoader.Azog);
-        System.out.println(StageLoader.Lurtz);
-
 
         sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
         this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/enemyAudio2.wav")));
@@ -276,46 +273,22 @@ public class FightMenu
                 }
             }
         }
+
         if(StageLoader.Smaug && !boxSmaug.isVisible())
         {
-            boxSmaug.setVisible(true);
-            labelSmaug.setVisible(false);
-            imageSmaug.setImage(new Image("/data/imgs/grave.png"));
-            imageSmaug.setFitHeight(150);
-            imageSmaug.setFitWidth(200);
-            imageSmaug.setLayoutX(-14);
-            imageSmaug.setLayoutX(26);
+            graveSmaug.setVisible(true);
         }
         if(StageLoader.Lurtz && !boxLurtz.isVisible())
         {
-            boxLurtz.setVisible(true);
-            labelLurtz.setVisible(false);
-            imageLurtz.setImage(new Image("/data/imgs/grave.png"));
-            imageLurtz.setFitHeight(150);
-            imageLurtz.setFitWidth(200);
-            imageLurtz.setLayoutX(-14);
-            imageLurtz.setLayoutX(26);
+            graveLurtz.setVisible(true);
         }
         if(StageLoader.Azog && !boxAzog.isVisible())
         {
-            boxAzog.setVisible(true);
-            labelAzog.setVisible(false);
-            imageAzog.setImage(new Image("/data/imgs/grave.png"));
-            imageAzog.setFitHeight(109);
-            imageAzog.setFitWidth(112);
-            imageAzog.setLayoutX(9);
-            imageAzog.setLayoutX(65);
+            graveAzog.setVisible(true);
         }
         if(StageLoader.Shelob && !boxShelob.isVisible())
         {
-            boxShelob.setVisible(true);
-            labelShelob.setVisible(false);
-            imageShelob.setImage(new Image("/data/imgs/grave.png"));
-            imageShelob.setFitHeight(150);
-            imageShelob.setFitWidth(200);
-            imageShelob.setLayoutX(234);
-            imageShelob.setLayoutX(41);
-            imageShelob.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+            graveShelob.setVisible(true);
         }
     }
 
@@ -395,14 +368,7 @@ public class FightMenu
 
     private void updateSpeech(String s)
     {
-        String t = "";
-        for(int i = 0; i<s.length();i++)
-        {
-            t += s.charAt(i);
-            System.out.println(t);
-            this.labelSpeech.setText(t);
-            //StageLoader.sleep(10);
-        }
+        labelSpeech.setText(s);
     }
 
     @FXML
@@ -413,10 +379,8 @@ public class FightMenu
             StageLoader.action = 1;
             StageLoader.currentEnemy = "Azog";
             StageLoader.choiceEnd = true;
-            //StageLoader.sleep(100);
             this.thread = new Thread(() -> update());
             this.thread.start();
-            //updateEnemies();
         }
     }
     @FXML
@@ -427,10 +391,8 @@ public class FightMenu
             StageLoader.action = 1;
             StageLoader.currentEnemy = "Smaug";
             StageLoader.choiceEnd = true;
-            //StageLoader.sleep(100);
             this.thread = new Thread(() -> update());
             this.thread.start();
-            //updateEnemies();
         }
 
     }
@@ -442,10 +404,8 @@ public class FightMenu
             StageLoader.action = 1;
             StageLoader.currentEnemy = "Lurtz";
             StageLoader.choiceEnd = true;
-            //StageLoader.sleep(100);
             this.thread = new Thread(() -> update());
             this.thread.start();
-            //updateEnemies();
         }
     }
     @FXML
@@ -456,10 +416,8 @@ public class FightMenu
             StageLoader.action = 1;
             StageLoader.currentEnemy = "Shelob";
             StageLoader.choiceEnd = true;
-            //StageLoader.sleep(100);
             this.thread = new Thread(() -> update());
             this.thread.start();
-            //updateEnemies();
         }
     }
 
@@ -475,8 +433,8 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "onigiri";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(1000);
-            update();
+            this.thread = new Thread(() -> update());
+            this.thread.start();
         }
     }
     @FXML
@@ -489,8 +447,8 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "sushis";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(1000);
-            update();
+            this.thread = new Thread(() -> update());
+            this.thread.start();
         }
     }
     @FXML
@@ -503,8 +461,8 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "ramen";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(1000);
-            update();
+            this.thread = new Thread(() -> update());
+            this.thread.start();
         }
     }
     @FXML
@@ -517,8 +475,8 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "simple healing potion";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(1000);
-            update();
+            this.thread = new Thread(() -> update());
+            this.thread.start();
         }
     }
     @FXML
@@ -532,8 +490,8 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "medium healing potion";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(1000);
-            update();
+            this.thread = new Thread(() -> update());
+            this.thread.start();
         }
     }
     @FXML
@@ -546,8 +504,8 @@ public class FightMenu
             StageLoader.action = 3;
             StageLoader.consumable2use = "high healing potion";
             StageLoader.choiceEnd = true;
-            StageLoader.sleep(1000);
-            update();
+            this.thread = new Thread(() -> update());
+            this.thread.start();
         }
     }
 }

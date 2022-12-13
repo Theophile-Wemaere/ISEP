@@ -100,7 +100,7 @@ public class Game
             }
 
             parser.waitKey();
-            healDefense();
+            //healDefense(); ->  a bit too powerful for now
             if(this.doBoss)
                 StageLoader.boss = (ArrayList<Combatant>) this.boss.clone();
             else
