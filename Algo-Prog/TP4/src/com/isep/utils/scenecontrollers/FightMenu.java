@@ -325,7 +325,7 @@ public class FightMenu
         else
         {
             status.setVisible(true);
-            status.setText("\uF7D0 " + Integer.toString(hp) + " 聯 " + Integer.toString(def) + " 懲" + Integer.toString(mana) + " " + hero.getName());
+            status.setText(" \uF7D0  " + Integer.toString(hp) + " 聯  " + Integer.toString(def) + " 懲" + Integer.toString(mana) + " " + hero.getName());
         }
     }
 
@@ -371,6 +371,54 @@ public class FightMenu
         labelSpeech.setText(s);
     }
 
+    @FXML
+    protected void onHero1Clicked()
+    {
+        if(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer) StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch"))
+        {
+            StageLoader.action = 1;
+            StageLoader.currentTarget = StageLoader.heros.get(1).getName();
+            StageLoader.choiceEnd = true;
+            this.thread = new Thread(() -> update());
+            this.thread.start();
+        }
+    }
+    @FXML
+    protected void onHero2Clicked()
+    {
+        if(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer) StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch"))
+        {
+            StageLoader.action = 1;
+            StageLoader.currentTarget = StageLoader.heros.get(1).getName();
+            StageLoader.choiceEnd = true;
+            this.thread = new Thread(() -> update());
+            this.thread.start();
+        }
+    }
+    @FXML
+    protected void onHero3Clicked()
+    {
+        if(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer) StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch"))
+        {
+            StageLoader.action = 1;
+            StageLoader.currentTarget = StageLoader.heros.get(1).getName();
+            StageLoader.choiceEnd = true;
+            this.thread = new Thread(() -> update());
+            this.thread.start();
+        }
+    }
+    @FXML
+    protected void onHero4Clicked()
+    {
+        if(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer) StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch"))
+        {
+            StageLoader.action = 1;
+            StageLoader.currentTarget = StageLoader.heros.get(1).getName();
+            StageLoader.choiceEnd = true;
+            this.thread = new Thread(() -> update());
+            this.thread.start();
+        }
+    }
     @FXML
     protected void attackAzog()
     {
@@ -420,8 +468,6 @@ public class FightMenu
             this.thread.start();
         }
     }
-
-
 
     @FXML
     protected void useOnigiri()

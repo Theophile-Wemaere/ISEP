@@ -160,12 +160,14 @@ public class GUIParser extends Application implements InputParser
 
     public int getTarget(ArrayList<Combatant> targets)
     {
-        String c = StageLoader.currentEnemy;
+        String c;
+        if(targets.get(0) instanceof Hero)
+            c = StageLoader.currentTarget;
+        else
+            c = StageLoader.currentEnemy;
         int choice;
-        for (Combatant target : targets)
-        {
-            if (target.getName().equals(c))
-            {
+        for (Combatant target : targets) {
+            if (target.getName().equals(c)) {
                 choice = targets.indexOf(target);
                 System.out.println("Using " + target.getName() + " on index " + Integer.toString(choice));
                 StageLoader.choiceEnd = false;

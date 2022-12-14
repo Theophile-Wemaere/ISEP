@@ -64,6 +64,7 @@ public class StageLoader
     public static Hero hero3;
     public static Hero hero4;
     public static int player = 0;
+    public static String currentTarget;
     public static ArrayList<Combatant> enemies = new ArrayList<>();
     public static ArrayList<Combatant> boss = new ArrayList<>();
     public static ArrayList<Combatant> heros = new ArrayList<>();

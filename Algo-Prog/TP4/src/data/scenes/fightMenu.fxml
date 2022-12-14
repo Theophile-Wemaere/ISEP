@@ -23,22 +23,22 @@
             <Font name="Meslo LG S Regular Nerd Font Complete" size="20.0" />
          </font>
       </Button>
-      <Label fx:id="statusHero1" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero1" text=" 4   3 聯  Aragorn " textFill="WHITE">
+      <Label fx:id="statusHero1" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero1" textFill="WHITE">
          <font>
             <Font name="The Wild Breath of Zelda" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="statusHero2" contentDisplay="CENTER" layoutY="26.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero2" text=" 4   3 聯  Legolas " textFill="WHITE">
+      <Label fx:id="statusHero2" contentDisplay="CENTER" layoutY="26.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero2" textFill="WHITE">
          <font>
             <Font name="The Wild Breath of Zelda" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="statusHero3" contentDisplay="CENTER" layoutY="52.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero3" text=" 4   3 聯  Gandalf" textFill="WHITE">
+      <Label fx:id="statusHero3" contentDisplay="CENTER" layoutY="52.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero3" textFill="WHITE">
          <font>
             <Font name="The Wild Breath of Zelda" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="statusHero4" contentDisplay="CENTER" layoutY="78.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero4" text=" 4   3 聯  Elrond" textFill="WHITE">
+      <Label fx:id="statusHero4" contentDisplay="CENTER" layoutY="78.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero4" text=" " textFill="WHITE">
          <font>
             <Font name="The Wild Breath of Zelda" size="17.0" />
          </font>
@@ -119,7 +119,7 @@
             <Image url="@../imgs/grave.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="boxHero4" layoutX="49.0" layoutY="277.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="124.0">
+      <AnchorPane fx:id="boxHero4" layoutX="49.0" layoutY="277.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onHero4Clicked" prefHeight="152.0" prefWidth="124.0">
          <children>
             <Label fx:id="nameHero4" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="129.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: black;" text="Gandalf" textFill="WHITE">
                <font>
@@ -133,7 +133,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boxHero1" layoutX="246.0" layoutY="140.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="124.0">
+      <AnchorPane fx:id="boxHero1" layoutX="246.0" layoutY="140.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onHero1Clicked" prefHeight="152.0" prefWidth="124.0">
          <children>
             <Label fx:id="nameHero1" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="129.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: black;" text="Aragorn" textFill="WHITE">
                <font>
@@ -147,7 +147,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boxHero2" layoutX="206.0" layoutY="317.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="124.0">
+      <AnchorPane fx:id="boxHero2" layoutX="206.0" layoutY="317.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onHero2Clicked" prefHeight="152.0" prefWidth="124.0">
          <children>
             <Label fx:id="nameHero2" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="129.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: black;" text="Legolas" textFill="WHITE">
                <font>
@@ -161,7 +161,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="boxHero3" layoutX="70.0" layoutY="134.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="152.0" prefWidth="124.0">
+      <AnchorPane fx:id="boxHero3" layoutX="70.0" layoutY="134.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onHero3Clicked" prefHeight="152.0" prefWidth="124.0">
          <children>
             <Label fx:id="nameHero3" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="129.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: black;" text="Elrond" textFill="WHITE">
                <font>
@@ -189,7 +189,7 @@
          <children>
             <ImageView fitHeight="357.0" fitWidth="396.0" layoutX="-4.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imgs/inventory-bg.png" />
+                  <Image url="@../imgs/button-bg.jpg" />
                </image>
             </ImageView>
             <Button fx:id="buttonCloseBag" layoutX="249.0" layoutY="7.0" mnemonicParsing="false" onAction="#closeBag" style="-fx-background-color: #00000000;" text="" textFill="RED">
