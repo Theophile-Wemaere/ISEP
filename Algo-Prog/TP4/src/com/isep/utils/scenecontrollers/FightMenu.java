@@ -41,9 +41,16 @@ public class FightMenu
     @FXML
     private Label labelInventory,labelOnigiri,labelSushis,labelRamen,labelLowPotion,labelMediumPotion,labelHighPotion;
     @FXML
+    private Label labelWeaponHunter,labelBow,labelDamageBow,labelCrossbow,labelDamageCrossbow,labelMalusCrossbow;
+    @FXML
+    private Label labelWeaponWarrior,labelSaber,labelDamageSaber,labelSword,labelDamageSword,labelMalusSword;
+
+    @FXML
+    private AnchorPane weaponHunter, weaponWarrior;
+    @FXML
     private AnchorPane boxHero1,boxHero2,boxHero3,boxHero4,boxAzog,boxSmaug,boxShelob,boxLurtz,boxBag;
     @FXML
-    private Button sound,buttonCloseBag;
+    private Button sound,buttonCloseBag,closeWarrior,closeHunter;
 
     @FXML
     private ImageView imageHero1,imageHero2,imageHero3,imageHero4,imageBag;
@@ -81,6 +88,9 @@ public class FightMenu
 
         labelSpeech.setFont(font);
 
+        labelMalusSword.setFont(font);
+        labelMalusCrossbow.setFont(font);
+
         Font font2 = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 30);
         labelInventory.setFont(font2);
         labelOnigiri.setFont(font2);
@@ -90,6 +100,24 @@ public class FightMenu
         labelMediumPotion.setFont(font2);
         labelHighPotion.setFont(font2);
 
+        labelWeaponHunter.setFont(font2);
+        labelWeaponWarrior.setFont(font2);
+
+        labelSword.setFont(font2);
+        labelDamageSword.setFont(font2);
+
+
+        labelSaber.setFont(font2);
+        labelDamageSaber.setFont(font2);
+
+        labelBow.setFont(font2);
+        labelDamageBow.setFont(font2);
+
+        labelCrossbow.setFont(font2);
+        labelDamageCrossbow.setFont(font2);
+
+        closeHunter.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeWarrior.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
         buttonCloseBag.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
 
         boxLurtz.setVisible(false);
@@ -419,6 +447,68 @@ public class FightMenu
             this.thread.start();
         }
     }
+    @FXML
+    protected void closeWarrior()
+    {
+        weaponWarrior.setVisible(false);
+    }
+    @FXML
+    protected void closeHunter()
+    {
+        weaponHunter.setVisible(false);
+    }
+    @FXML
+    protected void openWeapon()
+    {
+        if(StageLoader.heros.get(StageLoader.player) instanceof Hunter)
+        {
+            if(weaponHunter.isVisible())
+                weaponHunter.setVisible(false);
+            else
+                weaponHunter.setVisible(true);
+        }
+        else if(StageLoader.heros.get(StageLoader.player) instanceof Warrior)
+        {
+            if(weaponWarrior.isVisible())
+                weaponWarrior.setVisible(false);
+            else
+                weaponWarrior.setVisible(true);
+        }
+    }
+    @FXML
+    protected void onSaberClicked()
+    {
+        Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
+        ((Warrior) hero).chooseWeapons(1);
+        weaponWarrior.setVisible(false);
+    }
+
+    @FXML
+    protected void onSwordClicked()
+    {
+        Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
+        ((Warrior) hero).chooseWeapons(2);
+        weaponWarrior.setVisible(false);
+    }
+
+    @FXML
+    protected void onBowClicked()
+    {
+        Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
+        ((Hunter) hero).chooseWeapons(1);
+        weaponHunter.setVisible(false);
+    }
+
+    @FXML
+    protected void onCrossbowClicked()
+    {
+        Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
+        ((Hunter) hero).chooseWeapons(2);
+        weaponHunter.setVisible(false);
+    }
+
+
+
     @FXML
     protected void attackAzog()
     {
