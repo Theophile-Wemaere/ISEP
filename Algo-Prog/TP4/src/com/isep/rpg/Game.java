@@ -22,7 +22,7 @@ public class Game
     private ArrayList<String> BossNames = new ArrayList<>();
 
     private int number; // number of heros
-    private boolean playing = true, doBoss = false;
+    private boolean playing = true, doBoss = false, firstRound = false;
 
     // private Enemy boss;
 
@@ -87,10 +87,15 @@ public class Game
             // heros plays
             playHero();
 
-            if(this.doBoss && this.playing)
+            if(this.doBoss && this.playing && this.firstRound)
             {
                 System.out.println("\u001B[33m" + "The boss strikes back !" + "\u001B[0m");
                 playBoss();
+            }
+            else if(this.playing && this.doBoss && !this.firstRound)
+            {
+                this.firstRound = true;
+                StageLoader.player = 4; // automatically reset the number to 0 later
             }
             else if(this.playing)
             {
@@ -137,7 +142,7 @@ public class Game
             }
             else
             {
-                if(this.parser instanceof ConsoleParser)
+                //if(this.parser instanceof ConsoleParser)
                     printBoss();
                 currentEnemy = (ArrayList<Combatant>) this.boss.clone();
             }
@@ -215,6 +220,8 @@ public class Game
             {
                 System.out.println("\u001B[33m" + "All the enemies are dead, the final boss is waiting..." + "\u001B[0m");
                 this.doBoss = true;
+                StageLoader.doBoss = true;
+                break;
             }
             else if(this.doBoss && currentEnemy.size() == 0)
             {
@@ -255,6 +262,7 @@ public class Game
             {
                 System.out.println("\nAll your heros are dead, darkness has won...");
                 this.playing = false;
+                break;
             }
         }
     }
@@ -273,15 +281,14 @@ public class Game
             {
                 this.heros.remove(t);
             }
+            if(this.heros.size() == 0)
+            {
+                System.out.println("\nAll your heros are dead, darkness has won...");
+                System.out.println("\u001B[33m" + "通常兵器はエンジェルズに勝てない" + "\u001B[0m");
+                this.playing = false;
+                break;
+            }
         }
-
-        if(this.heros.size() == 0)
-        {
-            System.out.println("\nAll your heros are dead, darkness has won...");
-            System.out.println("\u001B[33m" + "通常兵器はエンジェルズに勝てない" + "\u001B[0m");
-            this.playing = false;
-        }
-
     }
 
     private void clearConsole()                                                                                                       
@@ -308,7 +315,7 @@ public class Game
             {
                 System.out.print(" |");
             }
-            System.out.print(" " + consumables.get(i).getName());
+            System.out.print(" " + consumables.get(i).getName() + " (" + Integer.toString(consumables.get(i).getHealingPoints()) + ")" );
         }
         System.out.println(" ]");
     }

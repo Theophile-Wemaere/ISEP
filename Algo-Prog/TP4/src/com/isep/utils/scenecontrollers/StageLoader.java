@@ -57,6 +57,7 @@ public class StageLoader
     public static boolean Shelob = false;
     public static boolean Azog = false;
     public static boolean Lurtz = false;
+    public static boolean doBoss = false;
     public static int herosNumber = 4;
     public static int action;
     public static Hero hero1;

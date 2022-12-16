@@ -10,6 +10,8 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.geometry.NodeOrientation;
 import javafx.scene.control.*;
+import javafx.scene.effect.Bloom;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -44,16 +46,18 @@ public class FightMenu
     private Label labelWeaponHunter,labelBow,labelDamageBow,labelCrossbow,labelDamageCrossbow,labelMalusCrossbow;
     @FXML
     private Label labelWeaponWarrior,labelSaber,labelDamageSaber,labelSword,labelDamageSword,labelMalusSword;
-
     @FXML
-    private AnchorPane weaponHunter, weaponWarrior;
+    private Label labelSpellMage, labelDamageIce, labelCostIce, labelDamageLightning, labelCostLightning, labelDamageFire, labelCostFire;
+    @FXML
+    private Label labelSpellHealer, labelDamageLight, labelCostLight, labelDamageHeal, labelCostHeal, labelWeapon, currentDamage, currentCost;
+    @FXML
+    private AnchorPane weaponHunter, weaponWarrior, spellMage, spellHealer;
     @FXML
     private AnchorPane boxHero1,boxHero2,boxHero3,boxHero4,boxAzog,boxSmaug,boxShelob,boxLurtz,boxBag;
     @FXML
-    private Button sound,buttonCloseBag,closeWarrior,closeHunter;
-
+    private Button sound,buttonCloseBag,closeWarrior,closeHunter,closeMage,closeHealer;
     @FXML
-    private ImageView imageHero1,imageHero2,imageHero3,imageHero4,imageBag;
+    private ImageView imageHero1,imageHero2,imageHero3,imageHero4,imageBag, currentWeapon;
 
     @FXML
     ImageView imageSmaug, imageShelob, imageAzog, imageLurtz;
@@ -75,6 +79,10 @@ public class FightMenu
         nameHero2.setFont(font);
         nameHero3.setFont(font);
         nameHero4.setFont(font);
+
+        labelWeapon.setFont(font);
+        currentDamage.setFont(font);
+        currentCost.setFont(font);
 
         statusHero1.setFont(font);
         statusHero2.setFont(font);
@@ -116,8 +124,29 @@ public class FightMenu
         labelCrossbow.setFont(font2);
         labelDamageCrossbow.setFont(font2);
 
+        Font font3 = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 23);
+        labelSpellMage.setFont(font2);
+        labelSpellHealer.setFont(font2);
+
+        labelDamageIce.setFont(font3);
+        labelCostIce.setFont(font3);
+
+        labelDamageLightning.setFont(font3);
+        labelCostLightning.setFont(font3);
+
+        labelDamageFire.setFont(font3);
+        labelCostFire.setFont(font3);
+
+        labelDamageLight.setFont(font3);
+        labelCostLight.setFont(font3);
+
+        labelDamageHeal.setFont(font3);
+        labelCostHeal.setFont(font3);
+
         closeHunter.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
         closeWarrior.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeMage.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeHealer.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
         buttonCloseBag.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
 
         boxLurtz.setVisible(false);
@@ -180,12 +209,14 @@ public class FightMenu
         }
 
         sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
-        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/enemyAudio2.wav")));
+        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/enemyAudio.wav")));
         if(StageLoader.sound)
             this.clip.loop(Clip.LOOP_CONTINUOUSLY);
         else
             sound.setText("\uF026");
+        updateWeapon();
         updateInventory();
+        highLightHero();
         updateSpeech("What will " + StageLoader.heros.get(StageLoader.player).getName() + " do ?");
     }
 
@@ -193,8 +224,6 @@ public class FightMenu
     {
         StageLoader.sleep(1000);
         Platform.runLater(() -> {
-
-            System.out.print("UPDATING...");
 
             boxHero1.setVisible(false);
             boxHero2.setVisible(false);
@@ -205,6 +234,31 @@ public class FightMenu
             statusHero2.setVisible(false);
             statusHero3.setVisible(false);
             statusHero4.setVisible(false);
+
+            closeBag();
+            closeWarrior();
+            closeHunter();
+            closeMage();
+            closeHealer();
+
+            if (StageLoader.heros.size() == 0) {
+                System.out.println("heros are dead");
+                System.exit(0);
+            }
+
+            if (StageLoader.doBoss)
+            {
+                System.out.println("all enemies are dead ----> boss");
+                if(StageLoader.sound)
+                {
+                    this.clip.stop();
+                }
+                try {
+                    StageLoader.loadFXMLScene("/data/scenes/bossRamiel.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
             if (StageLoader.heros.size() > 0) {
                 setupHero((Hero) StageLoader.heros.get(0), imageHero1, nameHero1);
@@ -229,9 +283,39 @@ public class FightMenu
 
             updateInventory();
             updateEnemies();
+            updateWeapon();
+            highLightHero();
+
             updateSpeech("What will " + StageLoader.heros.get(StageLoader.player).getName() + " do ?");
             this.thread.interrupt();
         });
+    }
+
+    private void highLightHero()
+    {
+        Bloom bloom = new Bloom();
+        bloom.setThreshold(0);
+
+        imageHero1.setEffect(null);
+        imageHero2.setEffect(null);
+        imageHero3.setEffect(null);
+        imageHero4.setEffect(null);
+
+        switch(StageLoader.player)
+        {
+            case 0:
+                imageHero1.setEffect(bloom);
+                break;
+            case 1:
+                imageHero2.setEffect(bloom);
+                break;
+            case 2:
+                imageHero3.setEffect(bloom);
+                break;
+            case 3:
+                imageHero4.setEffect(bloom);
+                break;
+        }
     }
 
     @FXML
@@ -264,6 +348,71 @@ public class FightMenu
             boxBag.setVisible(false);
         else
             boxBag.setVisible(true);
+    }
+
+    private void updateWeapon()
+    {
+        currentCost.setVisible(false);
+        labelWeapon.setText("Current Weapon");
+        Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+        if(current instanceof Warrior)
+        {
+            String name = ((Warrior) current).getWeaponName();
+            int d = ((Warrior) current).getDamage();
+            currentDamage.setText("Damage : " + Integer.toString(d));
+            switch(name)
+            {
+                case "giant sword":
+                    currentWeapon.setImage(new Image("/data/imgs/sword.png"));
+                    break;
+                case "saber":
+                    currentWeapon.setImage(new Image("/data/imgs/saber.png"));
+                    break;
+            }
+        }
+        else if(current instanceof Hunter)
+        {
+            String name = ((Hunter) current).getWeaponName();
+            int d = ((Hunter) current).getDamage();
+            currentDamage.setText("Damage : " + Integer.toString(d));
+            switch(name)
+            {
+                case "bow":
+                    currentWeapon.setImage(new Image("/data/imgs/bow.png"));
+                    break;
+                case "crossbow":
+                    currentWeapon.setImage(new Image("/data/imgs/crossbow.png"));
+                    break;
+            }
+        }
+        else if(current instanceof SpellCaster)
+        {
+            String name = ((SpellCaster) current).getSpellName();
+            labelWeapon.setText("Current Spell");
+            currentCost.setVisible(true);
+            int d = ((SpellCaster) current).getSpellDamage();
+            currentDamage.setText("Damage : " + Integer.toString(d));
+            d = ((SpellCaster) current).getSpellCost();
+            currentCost.setText("Mana cost : " + Integer.toString(d));
+            switch(name)
+            {
+                case "ice pick":
+                    currentWeapon.setImage(new Image("/data/imgs/icepick.gif"));
+                    break;
+                case "lightning":
+                    currentWeapon.setImage(new Image("/data/imgs/lightning.gif"));
+                    break;
+                case "fire storm":
+                    currentWeapon.setImage(new Image("/data/imgs/firestorm.gif"));
+                    break;
+                case "holy ray":
+                    currentWeapon.setImage(new Image("/data/imgs/lightray.gif"));
+                    break;
+                case "healing touch":
+                    currentWeapon.setImage(new Image("/data/imgs/healingtouch.gif"));
+                    break;
+            }
+        }
     }
 
     private void updateEnemies()
@@ -360,7 +509,6 @@ public class FightMenu
     private void updateInventory()
     {
         int onigiri=0,sushis=0,ramen=0,lowPot=0,medPot=0,highPot=0;
-        System.out.println(StageLoader.consumables.size());
         for(int i=0;i<StageLoader.consumables.size();i++)
         {
             String current = StageLoader.consumables.get(i).getName();
@@ -405,7 +553,7 @@ public class FightMenu
         if(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer) StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch"))
         {
             StageLoader.action = 1;
-            StageLoader.currentTarget = StageLoader.heros.get(1).getName();
+            StageLoader.currentTarget = StageLoader.heros.get(0).getName();
             StageLoader.choiceEnd = true;
             this.thread = new Thread(() -> update());
             this.thread.start();
@@ -429,7 +577,7 @@ public class FightMenu
         if(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer) StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch"))
         {
             StageLoader.action = 1;
-            StageLoader.currentTarget = StageLoader.heros.get(1).getName();
+            StageLoader.currentTarget = StageLoader.heros.get(2).getName();
             StageLoader.choiceEnd = true;
             this.thread = new Thread(() -> update());
             this.thread.start();
@@ -441,7 +589,7 @@ public class FightMenu
         if(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer) StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch"))
         {
             StageLoader.action = 1;
-            StageLoader.currentTarget = StageLoader.heros.get(1).getName();
+            StageLoader.currentTarget = StageLoader.heros.get(3).getName();
             StageLoader.choiceEnd = true;
             this.thread = new Thread(() -> update());
             this.thread.start();
@@ -458,8 +606,22 @@ public class FightMenu
         weaponHunter.setVisible(false);
     }
     @FXML
+    protected void closeMage()
+    {
+        spellMage.setVisible(false);
+    }
+    @FXML
+    protected void closeHealer()
+    {
+        spellHealer.setVisible(false);
+    }
+
+    @FXML
     protected void openWeapon()
     {
+        if(boxBag.isVisible())
+            boxBag.setVisible(false);
+
         if(StageLoader.heros.get(StageLoader.player) instanceof Hunter)
         {
             if(weaponHunter.isVisible())
@@ -474,6 +636,20 @@ public class FightMenu
             else
                 weaponWarrior.setVisible(true);
         }
+        else if(StageLoader.heros.get(StageLoader.player) instanceof Mage)
+        {
+            if(spellMage.isVisible())
+                spellMage.setVisible(false);
+            else
+                spellMage.setVisible(true);
+        }
+        else if(StageLoader.heros.get(StageLoader.player) instanceof Healer)
+        {
+            if(spellHealer.isVisible())
+                spellHealer.setVisible(false);
+            else
+                spellHealer.setVisible(true);
+        }
     }
     @FXML
     protected void onSaberClicked()
@@ -481,6 +657,7 @@ public class FightMenu
         Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
         ((Warrior) hero).chooseWeapons(1);
         weaponWarrior.setVisible(false);
+        updateWeapon();
     }
 
     @FXML
@@ -489,6 +666,7 @@ public class FightMenu
         Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
         ((Warrior) hero).chooseWeapons(2);
         weaponWarrior.setVisible(false);
+        updateWeapon();
     }
 
     @FXML
@@ -497,6 +675,7 @@ public class FightMenu
         Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
         ((Hunter) hero).chooseWeapons(1);
         weaponHunter.setVisible(false);
+        updateWeapon();
     }
 
     @FXML
@@ -505,14 +684,54 @@ public class FightMenu
         Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
         ((Hunter) hero).chooseWeapons(2);
         weaponHunter.setVisible(false);
+        updateWeapon();
     }
 
-
+    @FXML
+    protected void onIceClicked()
+    {
+        Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
+        ((Mage) hero).chooseSpell(1);
+        spellMage.setVisible(false);
+        updateWeapon();
+    }
+    @FXML
+    protected void onLightningClicked()
+    {
+        Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
+        ((Mage) hero).chooseSpell(2);
+        spellMage.setVisible(false);
+        updateWeapon();
+    }
+    @FXML
+    protected void onFireClicked()
+    {
+        Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
+        ((Mage) hero).chooseSpell(3);
+        spellMage.setVisible(false);
+        updateWeapon();
+    }
+    @FXML
+    protected void onLightClicked()
+    {
+        Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
+        ((Healer) hero).chooseSpell(1);
+        spellHealer.setVisible(false);
+        updateWeapon();
+    }
+    @FXML
+    protected void onHealClicked()
+    {
+        Hero hero = (Hero) StageLoader.heros.get(StageLoader.player);
+        ((Healer) hero).chooseSpell(2);
+        spellHealer.setVisible(false);
+        updateWeapon();
+    }
 
     @FXML
     protected void attackAzog()
     {
-        if(labelAzog.isVisible())
+        if(labelAzog.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
             StageLoader.action = 1;
             StageLoader.currentEnemy = "Azog";
@@ -524,7 +743,7 @@ public class FightMenu
     @FXML
     protected void attackSmaug()
     {
-        if(labelSmaug.isVisible())
+        if(labelSmaug.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
             StageLoader.action = 1;
             StageLoader.currentEnemy = "Smaug";
@@ -537,7 +756,7 @@ public class FightMenu
     @FXML
     protected void attackLurtz()
     {
-        if(labelLurtz.isVisible())
+        if(labelLurtz.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
             StageLoader.action = 1;
             StageLoader.currentEnemy = "Lurtz";
@@ -549,7 +768,7 @@ public class FightMenu
     @FXML
     protected void attackShelob()
     {
-        if(labelShelob.isVisible())
+        if(labelShelob.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
             StageLoader.action = 1;
             StageLoader.currentEnemy = "Shelob";

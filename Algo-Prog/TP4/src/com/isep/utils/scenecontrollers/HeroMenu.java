@@ -136,7 +136,7 @@ public class HeroMenu
         fightButton.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 20));
         sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
 
-        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/heroMenu2.wav")));
+        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/heroMenu.wav")));
         if(StageLoader.sound)
             this.clip.loop(Clip.LOOP_CONTINUOUSLY);
         else
@@ -190,7 +190,7 @@ public class HeroMenu
             StageLoader.hero4 = setHero(choice4,field4);
 
         StageLoader.choiceEnd = true;
-        StageLoader.sleep(500);
+        StageLoader.sleep(200);
         if(StageLoader.sound)
         {
             this.clip.stop();

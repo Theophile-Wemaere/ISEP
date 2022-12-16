@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<!-- Font loaded here are taken directly inside the system font librairy, but it doesn't matter because they are loaded directly from
+ ttf file in the controller. it's just to have a good visualisation of the scene inside sceneBuilder -->
+
+<AnchorPane prefHeight="540" prefWidth="960" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.isep.utils.scenecontrollers.BossRamiel">
+   <children>
+      <ImageView fitHeight="555.0" fitWidth="972.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/bg-boss-ramiel.jpg" />
+         </image>
+      </ImageView>
+
+      <Button fx:id="sound" layoutX="925.0" layoutY="6.0" mnemonicParsing="false" onAction="#onSoundButton" style="-fx-background-color: #00000000;" text="" textFill="WHITE">
+         <font>
+            <Font name="Meslo LG S Regular Nerd Font Complete" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="statusHero1" contentDisplay="CENTER" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero1" textFill="WHITE">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="statusHero2" contentDisplay="CENTER" layoutY="26.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero2" textFill="WHITE">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="statusHero3" contentDisplay="CENTER" layoutY="52.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero3" textFill="WHITE">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="statusHero4" contentDisplay="CENTER" layoutY="78.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: black; -fx-border-color: white;" styleClass="statusHero4" text=" " textFill="WHITE">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="graveShelob" fitHeight="109.0" fitWidth="112.0" layoutX="728.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../imgs/grave.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="graveSmaug" fitHeight="109.0" fitWidth="112.0" layoutX="791.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../imgs/grave.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="graveAzog" fitHeight="109.0" fitWidth="112.0" layoutX="578.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../imgs/grave.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="graveLurtz" fitHeight="109.0" fitWidth="112.0" layoutX="562.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../imgs/grave.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="boxHero1" layoutX="283.0" layoutY="207.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onHero1Clicked" prefHeight="152.0" prefWidth="124.0">
+         <children>
+            <Label fx:id="nameHero1" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="129.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: black;" text="Aragorn" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageHero1" fitHeight="124.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/warrior.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="boxHero2" layoutX="207.0" layoutY="323.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onHero2Clicked" prefHeight="152.0" prefWidth="124.0">
+         <children>
+            <Label fx:id="nameHero2" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="129.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: black;" text="Legolas" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageHero2" fitHeight="124.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/hunter.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="boxHero3" layoutX="88.0" layoutY="207.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onHero3Clicked" prefHeight="152.0" prefWidth="124.0">
+         <children>
+            <Label fx:id="nameHero3" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="129.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: black;" text="Elrond" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageHero3" fitHeight="124.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/healer.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="boxHero4" layoutX="26.0" layoutY="354.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onHero4Clicked" prefHeight="152.0" prefWidth="124.0">
+         <children>
+            <Label fx:id="nameHero4" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="129.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: black;" text="Gandalf" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageHero4" fitHeight="124.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/mage.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label fx:id="labelSpeech" alignment="CENTER" layoutX="280.0" layoutY="479.0" prefHeight="55.0" prefWidth="408.0" style="-fx-background-color: #00000099;" text="Hello there" textFill="WHITE">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageBag" fitHeight="56.0" fitWidth="52.0" layoutX="283.0" layoutY="479.0" onMouseClicked="#openBagPack" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/bagpack.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageWeapon" fitHeight="49.0" fitWidth="52.0" layoutX="639.0" layoutY="482.0" onMouseClicked="#openWeapon" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/icon-weapon.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="boxBag" layoutX="309.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 5;" visible="false">
+         <children>
+            <ImageView fitHeight="342.0" fitWidth="342.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/button-bg.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonCloseBag" layoutX="279.0" layoutY="-10.0" mnemonicParsing="false" onAction="#closeBag" style="-fx-background-color: #00000000;" text="" textFill="RED">
+               <font>
+                  <Font name="Meslo LG S Regular Nerd Font Complete" size="40.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelInventory" layoutX="119.0" layoutY="39.0" text="Inventory" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="imageOnigiri" fitHeight="56.0" fitWidth="56.0" layoutX="51.0" layoutY="88.0" onMouseClicked="#useOnigiri" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/onigiri.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageSushis" fitHeight="49.0" fitWidth="69.0" layoutX="46.0" layoutY="164.0" onMouseClicked="#useSushis" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/sushis.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageRamen" fitHeight="71.0" fitWidth="65.0" layoutX="52.0" layoutY="213.0" onMouseClicked="#useRamen" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/ramen.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageLowPot" fitHeight="56.0" fitWidth="56.0" layoutX="203.0" layoutY="88.0" onMouseClicked="#useLowPot" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/low-potion.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageMedPot" fitHeight="49.0" fitWidth="69.0" layoutX="199.0" layoutY="164.0" onMouseClicked="#useMedPot" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/medium-potion.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageHighPot" fitHeight="71.0" fitWidth="65.0" layoutX="193.0" layoutY="225.0" onMouseClicked="#useHighPot" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/high-potion.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelOnigiri" layoutX="119.0" layoutY="99.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelRamen" layoutX="119.0" layoutY="244.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelSushis" layoutX="119.0" layoutY="172.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelLowPotion" layoutX="249.0" layoutY="99.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelMediumPotion" layoutX="249.0" layoutY="172.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelHighPotion" layoutX="249.0" layoutY="244.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="weaponWarrior" layoutX="309.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 5;" visible="false">
+         <children>
+            <ImageView fitHeight="342.0" fitWidth="342.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/button-bg.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="closeWarrior" layoutX="279.0" layoutY="-10.0" mnemonicParsing="false" onAction="#closeBag" onMouseClicked="#closeWarrior" style="-fx-background-color: #00000000;" text="" textFill="RED">
+               <font>
+                  <Font name="Meslo LG S Regular Nerd Font Complete" size="40.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelWeaponWarrior" layoutX="60.0" layoutY="30.0" text="Choose your weapon" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <AnchorPane fx:id="boxSaber" layoutX="60.0" layoutY="99.0" onMouseClicked="#onSaberClicked" prefHeight="63.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="92.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/saber.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelSaber" layoutX="142.0" layoutY="3.0" text="Saber" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelDamageSaber" layoutX="117.0" layoutY="46.0" text="Damage : 2" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="boxSword" layoutX="54.0" layoutY="217.0" onMouseClicked="#onSwordClicked" prefHeight="63.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="92.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/sword.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelSword" layoutX="105.0" text="Giant sword" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelDamageSword" layoutX="117.0" layoutY="46.0" text="Damage : 3" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelMalusSword" layoutX="72.0" layoutY="82.0" text="1/5 chance of failing the attack" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="weaponHunter" layoutX="309.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 5;" visible="false">
+         <children>
+            <ImageView fitHeight="342.0" fitWidth="342.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/button-bg.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="closeHunter" layoutX="279.0" layoutY="-10.0" mnemonicParsing="false" onAction="#closeBag" onMouseClicked="#closeHunter" style="-fx-background-color: #00000000;" text="" textFill="RED">
+               <font>
+                  <Font name="Meslo LG S Regular Nerd Font Complete" size="40.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelWeaponHunter" layoutX="60.0" layoutY="30.0" text="Choose your weapon" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <AnchorPane fx:id="boxBow" layoutX="60.0" layoutY="99.0" onMouseClicked="#onBowClicked" prefHeight="63.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="92.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/bow.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelBow" layoutX="142.0" layoutY="3.0" text="Bow" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelDamageBow" layoutX="117.0" layoutY="46.0" text="Damage : 2" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="boxCrossbow" layoutX="54.0" layoutY="217.0" onMouseClicked="#onCrossbowClicked" prefHeight="63.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="92.0" fitWidth="109.0" layoutX="6.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/crossbow.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelCrossbow" layoutX="105.0" text="Crossbow" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelDamageCrossbow" layoutX="117.0" layoutY="46.0" text="Damage : 3" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelMalusCrossbow" layoutX="72.0" layoutY="82.0" text="1/5 chance of failing the attack" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="spellMage" layoutX="309.0" layoutY="108.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 5;" visible="false">
+         <children>
+            <ImageView fitHeight="342.0" fitWidth="342.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/button-bg.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="closeMage" layoutX="279.0" layoutY="-10.0" mnemonicParsing="false" onAction="#closeBag" onMouseClicked="#closeMage" style="-fx-background-color: #00000000;" text="" textFill="RED">
+               <font>
+                  <Font name="Meslo LG S Regular Nerd Font Complete" size="40.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelSpellMage" layoutX="73.0" layoutY="13.0" text="Choose your spell" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <AnchorPane fx:id="boxIce" layoutX="74.0" layoutY="58.0" onMouseClicked="#onIceClicked" prefHeight="63.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="92.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/icepick.gif" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelDamageIce" layoutX="130.0" layoutY="14.0" text="Damage : 2" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCostIce" layoutX="120.0" layoutY="52.0" text="Mana cost : 1" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="boxLightning" layoutX="74.0" layoutY="158.0" onMouseClicked="#onLightningClicked" prefHeight="63.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="92.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/lightning.gif" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelDamageLightning" layoutX="130.0" layoutY="14.0" text="Damage : 3" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCostLightning" layoutX="120.0" layoutY="52.0" text="Mana cost : 3" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="boxFire" layoutX="74.0" layoutY="243.0" onMouseClicked="#onFireClicked" prefHeight="63.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="141.0" fitWidth="160.0" layoutX="-21.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/firestorm.gif" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelDamageFire" layoutX="130.0" layoutY="14.0" text="Damage : 5" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCostFire" layoutX="120.0" layoutY="52.0" text="Mana cost : 5" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="spellHealer" layoutX="309.0" layoutY="108.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 5;" visible="false">
+         <children>
+            <ImageView fitHeight="342.0" fitWidth="342.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/button-bg.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="closeHealer" layoutX="279.0" layoutY="-10.0" mnemonicParsing="false" onAction="#closeBag" onMouseClicked="#closeHealer" style="-fx-background-color: #00000000;" text="" textFill="RED">
+               <font>
+                  <Font name="Meslo LG S Regular Nerd Font Complete" size="40.0" />
+               </font>
+            </Button>
+            <Label fx:id="labelSpellHealer" layoutX="73.0" layoutY="30.0" text="Choose your spell" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="30.0" />
+               </font>
+            </Label>
+            <AnchorPane fx:id="boxIce1" layoutX="73.0" layoutY="82.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onLightClicked" prefHeight="92.0" prefWidth="233.0">
+               <children>
+                  <ImageView fitHeight="135.0" fitWidth="141.0" layoutX="-18.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/lightray.gif" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelDamageLight" layoutX="130.0" layoutY="14.0" text="Damage : 2" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCostLight" layoutX="120.0" layoutY="52.0" text="Mana cost : 2" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="boxLightning1" layoutX="71.0" layoutY="192.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onHealClicked" prefHeight="104.0" prefWidth="242.0">
+               <children>
+                  <ImageView fitHeight="135.0" fitWidth="139.0" layoutX="-14.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imgs/healingtouch.gif" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="labelDamageHeal" layoutX="142.0" layoutY="25.0" text="Heal : 2" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelCostHeal" layoutX="119.0" layoutY="60.0" text="Mana cost : 3" textFill="WHITE">
+                     <font>
+                        <Font name="The Wild Breath of Zelda" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="currentWeapon" fitHeight="80.0" fitWidth="88.0" layoutX="169.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/sword.png" />
+         </image></ImageView>
+      <Label fx:id="labelWeapon" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="10.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" text="Current weapon" textFill="WHITE">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="currentDamage" alignment="CENTER" contentDisplay="CENTER" layoutX="253.0" layoutY="30.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" text="Damage : 3" textFill="WHITE">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="currentCost" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="56.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" text="Mana cost : 2" textFill="WHITE">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="17.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="boxRamiel" layoutX="729.0" layoutY="171.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#attackRamiel" prefHeight="152.0" prefWidth="124.0">
+         <children>
+            <ImageView fx:id="imageRamiel" fitHeight="318.0" fitWidth="350.0" layoutX="-117.0" layoutY="-126.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/ramiel.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label fx:id="labelRamiel" alignment="CENTER" contentDisplay="CENTER" layoutX="599.0" layoutY="357.0" minHeight="-Infinity" prefHeight="45.0" prefWidth="365.0" text="Ramiel " textFill="WHITE">
+         <font>
+            <Font name="The Wild Breath of Zelda" size="30.0" />
+         </font>
+      </Label>
+   </children>
+
+</AnchorPane>

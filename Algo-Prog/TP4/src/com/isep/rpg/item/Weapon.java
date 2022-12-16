@@ -24,7 +24,7 @@ public class Weapon extends Item
                 break;
 
             case "bow":
-                this.damages = 2;
+                this.damages = 20;
                 this.malus = false;
                 break;
 

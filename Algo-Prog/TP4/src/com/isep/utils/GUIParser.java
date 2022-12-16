@@ -8,6 +8,8 @@ import com.isep.utils.scenecontrollers.*;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import org.w3c.dom.html.HTMLBRElement;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -15,13 +17,11 @@ import javax.sound.sampled.LineUnavailableException;
 
 public class GUIParser extends Application implements InputParser
 {
-    private Stage stage;
     private int heroNumber = 1;
     @Override
     public void start(Stage stage) throws IOException
     {
         // -_-_-_-_-_-_-_-_-_- load the fxml scene -_-_-_-_-_-_-_-_-_-
-        this.stage = stage;
         StageLoader.setStage(stage);
         StageLoader.loadFXMLScene("/data/scenes/welcomeMenu.fxml");
     }
@@ -78,84 +78,12 @@ public class GUIParser extends Application implements InputParser
 
     public void chooseSpell(SpellCaster hero)
     {
-        Scanner scanner = new Scanner(System.in);
-        boolean c;
-        int max = 0, choice = 0;
-        System.out.println("\nChoose your spell : ");
-        if(hero instanceof Healer)
-        {
-            System.out.println("[1] Holy ray -> Damage = 2, Mana cost = 2");
-            System.out.println("[2] Healing touch -> Heal = 2, Mana cost = 2");
-            max = 2;
-        }
-        else if(hero instanceof Mage)
-        {
-            System.out.println("[1] Ice pick -> Damage = 2, Mana cost = 1");
-            System.out.println("[2] Lightning -> Damage = 3, Mana cost = 3");
-            System.out.println("[3] Fire storm -> Damage = 5, Mana cost = 5");
-            max = 3;
-        }
-        c = false;
-        while(!c)
-        {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
-            if(choice >= 1 && choice <= max)
-            {
-                hero.chooseSpell(choice);
-                int manaCost = hero.getSpellCost();
-                int manaAmount = hero.getMana();
-                if(manaCost <= manaAmount)
-                {
-                    c = true;
-                }
-                else
-                {
-                    System.out.println("\u001B[33m" + "Carefull, " + hero.getName() + " doesn't have enough mana for this spell" + "\u001B[0m");
-                }
-            }
-        }
-
+        // do nothing, spell choice is made using events
     }
 
     public void chooseWeapon(Hero hero)
     {
-        Scanner scanner = new Scanner(System.in);
-        boolean c = false;
-        int weapon;
-        System.out.println("\nChoose your weapons : ");
-        if(hero instanceof Warrior)
-        {
-            System.out.println("[1] Saber | 2 damages");
-            System.out.println("[2] Giant sword | 3 damages (1/5 of failing the attack)");
-            c = false;
-            while(!c)
-            {
-                System.out.print("Enter your choice : ");
-                weapon = scanner.nextInt();
-                if(weapon == 1 || weapon == 2)
-                {
-                    c = true;
-                    ((Warrior) hero).chooseWeapons(weapon);
-                }
-            }
-        }
-        else if(hero instanceof Hunter)
-        {
-            System.out.println("[1] Bow | 2 damages");
-            System.out.println("[2] Crossbow | 3 damages (1/5 of failing the attack)");
-            c = false;
-            while(!c)
-            {
-                System.out.print("Enter your choice : ");
-                weapon = scanner.nextInt();
-                if(weapon == 1 || weapon == 2)
-                {
-                    c = true;
-                    ((Hunter) hero).chooseWeapons(weapon);
-                }
-            }
-        }
+        // do nothing, weapon choice is made using events
     }
 
     public int getTarget(ArrayList<Combatant> targets)
@@ -169,9 +97,12 @@ public class GUIParser extends Application implements InputParser
         for (Combatant target : targets) {
             if (target.getName().equals(c)) {
                 choice = targets.indexOf(target);
-                System.out.println("Using " + target.getName() + " on index " + Integer.toString(choice));
                 StageLoader.choiceEnd = false;
-                return choice;
+                Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+                if((current instanceof Healer && ((Healer) current).getSpellCost() >= 2) || (current instanceof Mage && ((Mage) current).getSpellCost() >= 1) || !(current instanceof SpellCaster))
+                    return choice;
+                else
+                    System.out.println(current.getName() +  " doesn't have enough mana");
             }
         }
         return -1;
@@ -181,13 +112,11 @@ public class GUIParser extends Application implements InputParser
     {
         String c = StageLoader.consumable2use;
         int choice;
-        System.out.println("need to use " + c);
         for (Consumable consumable : consumables)
         {
             if (consumable.getName().equals(c))
             {
                 choice = consumables.indexOf(consumable);
-                System.out.println("Using " + consumable.getName() + " on index " + Integer.toString(choice));
                 StageLoader.choiceEnd = false;
                 return choice;
             }
